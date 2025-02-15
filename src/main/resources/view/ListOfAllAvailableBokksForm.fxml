@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="465.0" prefWidth="683.0" style="-fx-background-color: #12CBC4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.report.ListOfAvailableBooksFormController">
+   <children>
+      <Label layoutX="87.0" layoutY="14.0" prefHeight="54.0" prefWidth="468.0" text="List Of Available Books" textFill="#720081">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="40.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="386.0" fitWidth="686.0" layoutY="79.0">
+         <image>
+            <Image url="@../images/2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="67.0" fitWidth="66.0" layoutX="566.0" layoutY="8.0">
+         <image>
+            <Image url="@../images/list.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblAvailablebooks" layoutX="38.0" layoutY="105.0" prefHeight="285.0" prefWidth="616.0">
+        <columns>
+          <TableColumn fx:id="colBookID" prefWidth="80.79995346069336" text="Book ID" />
+          <TableColumn fx:id="colISBN" prefWidth="108.79998779296875" text="ISBN" />
+            <TableColumn fx:id="colTitle" prefWidth="142.3999786376953" text="Title" />
+            <TableColumn fx:id="colAuthor" prefWidth="142.4000244140625" text="Author" />
+            <TableColumn fx:id="colGenre" prefWidth="146.39996337890625" text="Genre" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnReload" layoutX="491.0" layoutY="412.0" onAction="#btnReloadOnAction" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #B33771;" text="Reload" textFill="#faf6f6">
+         <font>
+            <Font name="Cooper Black" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

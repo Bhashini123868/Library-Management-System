@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="489.0" prefWidth="708.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.report.ReportingDashboardController">
+   <children>
+      <ImageView fitHeight="489.0" fitWidth="708.0">
+         <image>
+            <Image url="@../images/b1.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnListAvailableBooks" layoutX="189.0" layoutY="160.0" onAction="#btnListAvailableBooksOnAction" prefHeight="43.0" prefWidth="354.0" style="-fx-background-color: #00cec9;" text="List Of All Available Books">
+         <font>
+            <Font name="Gill Sans MT Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="31.0" layoutY="38.0" prefHeight="64.0" prefWidth="316.0" text="Reports" textFill="#1b3fcc">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="50.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnListOverDueFines" layoutX="189.0" layoutY="285.0" onAction="#btnListOverDueFinesOnAction" prefHeight="43.0" prefWidth="354.0" style="-fx-background-color: #00cec9;" text="List Of All Overdue Books with Fines">
+         <font>
+            <Font name="Gill Sans MT Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnListBorrowedBooks" layoutX="189.0" layoutY="223.0" onAction="#btnListBorrowedBooksOnAction" prefHeight="43.0" prefWidth="354.0" style="-fx-background-color: #00cec9;" text="List Of All Borrowed Books">
+         <font>
+            <Font name="Gill Sans MT Bold" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

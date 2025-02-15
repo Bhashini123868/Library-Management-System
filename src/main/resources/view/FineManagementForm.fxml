@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="489.0" prefWidth="740.0" style="-fx-background-color: #f8c291;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login.FineManagementFormController">
+   <children>
+      <Label layoutX="149.0" layoutY="14.0" prefHeight="18.0" prefWidth="415.0" text="Fine Management">
+         <font>
+            <Font name="Book Antiqua Bold" size="50.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="63.0" fitWidth="83.0" layoutX="587.0" layoutY="14.0">
+         <image>
+            <Image url="@../images/fine.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="416.0" fitWidth="740.0" layoutY="75.0">
+         <image>
+            <Image url="@../images/fineBook.jpg" />
+         </image>
+      </ImageView>
+      <JFXComboBox fx:id="cmbUserID" layoutX="56.0" layoutY="117.0" onAction="#cmbUserIDOnAction" prefHeight="26.0" prefWidth="126.0" promptText="User ID" style="-fx-background-color: #f6e58d;" />
+      <JFXComboBox fx:id="cmbISBN" layoutX="55.0" layoutY="167.0" onAction="#cmbISBNOnAction" prefHeight="26.0" prefWidth="126.0" promptText="ISBN" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtTitle" alignment="CENTER" layoutX="213.0" layoutY="117.0" promptText="Title" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtMmbrshipDate" alignment="CENTER" layoutX="552.0" layoutY="167.0" promptText="Membership Date" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtContactInfo" alignment="CENTER" layoutX="386.0" layoutY="167.0" promptText="Contact Info" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtUserName" alignment="CENTER" layoutX="213.0" layoutY="167.0" promptText="User Name" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtGenre" alignment="CENTER" layoutX="552.0" layoutY="117.0" promptText="Genre" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtAuthor" alignment="CENTER" layoutX="386.0" layoutY="117.0" promptText="Author" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtAmmountPaid" alignment="CENTER" layoutX="213.0" layoutY="220.0" promptText="Ammount Paid" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtBalance" alignment="CENTER" layoutX="386.0" layoutY="220.0" promptText="Balance" style="-fx-background-color: #f6e58d;" />
+      <JFXButton fx:id="btnPayNow" layoutX="283.0" layoutY="283.0" onAction="#btnPayNowOnAction" prefHeight="38.0" prefWidth="174.0" style="-fx-background-color: #f9ca24;" text="Pay Now" textFill="WHITE">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDwnload" layoutX="283.0" layoutY="338.0" onAction="#btnDwnloadOnAction" prefHeight="38.0" prefWidth="174.0" style="-fx-background-color: #f0932b;" text="Download Recipt" textFill="WHITE">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="469.0" layoutY="453.0" prefHeight="23.0" prefWidth="270.0" text="\@2025 | Booklib(PVT).ltd">
+         <font>
+            <Font name="Book Antiqua Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

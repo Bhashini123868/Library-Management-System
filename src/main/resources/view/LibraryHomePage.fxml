@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login.libraryHomePageController">
+    <children>
+        <AnchorPane prefHeight="513.0" prefWidth="703.0" style="-fx-background-color: #fab1a0;">
+            <children>
+
+
+                <Label layoutX="96.0" layoutY="14.0" prefHeight="75.0" prefWidth="562.0" text="Library Management " textFill="#8e0f3b">
+                    <font>
+                        <Font name="Gill Sans Ultra Bold Condensed" size="60.0" />
+                    </font>
+                </Label>
+                <Label layoutX="251.0" layoutY="84.0" prefHeight="75.0" prefWidth="208.0" text="System" textFill="#8e0f3b">
+                    <font>
+                        <Font name="Gill Sans Ultra Bold Condensed" size="60.0" />
+                    </font>
+                </Label>
+            <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="166.0" layoutY="94.0">
+               <image>
+                  <Image url="@../images/book.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="75.0" fitWidth="87.0" layoutX="459.0" layoutY="80.0">
+               <image>
+                  <Image url="@../images/bookRead.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="16.0" fitWidth="17.0" layoutX="534.0" layoutY="429.0">
+               <image>
+                  <Image url="@../images/login.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="356.0" fitWidth="704.0" layoutX="-1.0" layoutY="164.0">
+               <image>
+                  <Image url="@../images/login1.jpeg" />
+               </image>
+            </ImageView>
+
+
+                <JFXButton fx:id="btnWelcome" layoutX="528.0" layoutY="422.0" onAction="#btnWelcomeOnAction" prefHeight="31.0" prefWidth="144.0" style="-fx-background-color: #e17055;" text="Welcome" textFill="#f7efef">
+                    <font>
+                        <Font name="Britannic Bold" size="18.0" />
+                    </font>
+                </JFXButton>
+
+
+                <Label layoutX="327.0" layoutY="494.0" prefHeight="24.0" prefWidth="346.0" text="\@2025 | Booklib(PVT).ltd">
+                    <font>
+                        <Font name="Eras Bold ITC" size="20.0" />
+                    </font>
+                </Label>
+
+
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb8b8" height="105.0" layoutX="22.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" width="513.0" />
+                <Label layoutX="34.0" layoutY="209.0" prefHeight="31.0" prefWidth="488.0" text="bringing the library to your fingertips">
+                    <font>
+                        <Font name="Bodoni MT Black" size="25.0" />
+                    </font>
+                </Label>
+
+
+                <Label layoutX="35.0" layoutY="179.0" prefHeight="18.0" prefWidth="411.0" text="&quot; A new gateway to knowledge">
+                    <font>
+                        <Font name="Bodoni MT Black" size="25.0" />
+                    </font>
+                </Label>
+                <Label layoutX="34.0" layoutY="244.0" prefHeight="31.0" prefWidth="264.0" text="with technology....&quot;">
+                    <font>
+                        <Font name="Bodoni MT Black" size="25.0" />
+                    </font>
+                </Label>
+            <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="536.0" layoutY="425.0">
+               <image>
+                  <Image url="@../images/login.png" />
+               </image>
+            </ImageView>
+
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
