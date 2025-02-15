@@ -1,6 +1,7 @@
 package controller.book;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +23,7 @@ import java.util.ResourceBundle;
 
 public class BookManagementFormController implements Initializable {
 
+    public JFXComboBox cmbBookID;
     @FXML
     private JFXButton btnAdd;
 
@@ -135,8 +137,6 @@ public class BookManagementFormController implements Initializable {
         }
     }
 
-
-
     @FXML
     void btnSearchOnAction(ActionEvent event) {
         try {
@@ -183,10 +183,6 @@ public class BookManagementFormController implements Initializable {
 
     }
 
-    @FXML
-    void txtISBNOnAction(ActionEvent event) {
-
-    }
     List<Book> bookList = new ArrayList<>();
     private void loadTable () {
         try {
@@ -210,6 +206,7 @@ public class BookManagementFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadTable();
+//        loadBookIDs();
         tblBook.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             if (newValue != null) {
                 setTextToValues((Book) newValue);
@@ -226,4 +223,35 @@ public class BookManagementFormController implements Initializable {
         txtGenre.setText(book.getGenre());
         txtAvailibility.setText(book.getAvailability() + "");
     }
+//    private void loadBookIDs() {
+//        try {
+//            ObservableList<String> bookIDList = FXCollections.observableArrayList();
+//            List<Book> books = BookManagementController.getInstance().getAll(); // All books from DB
+//
+//            for (Book book : books) {
+//                bookIDList.add(book.getBookID());
+//            }
+//
+//            cmbBookID.setItems(bookIDList);
+//
+//        } catch (SQLException | ClassNotFoundException e) {
+//            new Alert(Alert.AlertType.ERROR, "Error Loading Book IDs: " + e.getMessage()).show();
+//        }
+//    }
+
+//    public void cmbBookIDOnAction(ActionEvent actionEvent) {
+//        String selectedBookID = (String) cmbBookID.getValue(); // Get selected ID
+//
+//        try {
+//            Book book = BookManagementController.getInstance().searchBook(selectedBookID);
+//            if (book != null) {
+//                setTextToValues(book);
+//            } else {
+//                new Alert(Alert.AlertType.WARNING, "Book Not Found!").show();
+//            }
+//        } catch (SQLException e) {
+//            new Alert(Alert.AlertType.ERROR, "Database Error: " + e.getMessage()).show();
+//        }
+//
+//    }
 }

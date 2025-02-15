@@ -22,8 +22,7 @@
             <Image url="@../images/bookmng.jpg" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtBookID" layoutX="30.0" layoutY="96.0" promptText="Book ID" style="-fx-background-color: #dff9fb;" />
-      <JFXTextField fx:id="txtISBN" layoutX="30.0" layoutY="143.0" onAction="#txtISBNOnAction" promptText="ISBN" style="-fx-background-color: #dff9fb;" text="ISBN" />
+      <JFXTextField fx:id="txtISBN" layoutX="30.0" layoutY="143.0" promptText="ISBN" style="-fx-background-color: #dff9fb;" />
       <JFXTextField fx:id="txtGenre" layoutX="30.0" layoutY="277.0" promptText="Genre" style="-fx-background-color: #dff9fb;" />
       <JFXTextField fx:id="txtAuthor" layoutX="30.0" layoutY="234.0" promptText="Author" style="-fx-background-color: #dff9fb;" />
       <JFXTextField fx:id="txtTitle" layoutX="30.0" layoutY="187.0" promptText="Title" style="-fx-background-color: #dff9fb;" />
@@ -58,5 +57,6 @@
             <Font name="Arial Narrow Bold" size="15.0" />
          </font>
       </JFXButton>
+      <JFXTextField fx:id="txtBookID" layoutX="30.0" layoutY="103.0" promptText="BookID" style="-fx-background-color: #dff9fb;" />
    </children>
 </AnchorPane>
