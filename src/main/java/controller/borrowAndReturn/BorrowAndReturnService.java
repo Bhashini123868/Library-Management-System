@@ -1,12 +1,12 @@
 package controller.borrowAndReturn;
 
-import model.BorrowAndReturn;
+import model.BorrowedBooks;
 import java.util.List;
 
 public interface BorrowAndReturnService {
-    List<BorrowAndReturn> getAll();
-    boolean updateBorrowAndReturn(BorrowAndReturn borrowAndReturn);
+    List<BorrowedBooks> getAll();
+    boolean updateBorrowAndReturn(BorrowedBooks borrowAndReturn);
     boolean deleteBorrowAndReturn(String recordID);
-    BorrowAndReturn searchBorrowAndReturn(String recordID);
-    boolean saveBorrowAndReturn(BorrowAndReturn borrowAndReturn);
+    BorrowedBooks searchBorrowAndReturn(String recordID);
+    boolean saveBorrowAndReturn(BorrowedBooks borrowAndReturn);
 }

@@ -3,7 +3,7 @@ package controller.borrowAndReturn;
 import db.Db_Connection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.BorrowAndReturn;
+import model.BorrowedBooks;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,15 +21,15 @@ public class BorrowAndReturnController implements BorrowAndReturnService {
     }
 
     @Override
-    public List<BorrowAndReturn> getAll() {
+    public List<BorrowedBooks> getAll() {
         try (Connection connection = Db_Connection.getInstance().getConnection()) {
             String query = "SELECT * FROM borrow_return";
             PreparedStatement stmt = connection.prepareStatement(query);
             ResultSet resultSet = stmt.executeQuery();
 
-            ObservableList<BorrowAndReturn> borrowAndReturnsObList = FXCollections.observableArrayList();
+            ObservableList<BorrowedBooks> borrowAndReturnsObList = FXCollections.observableArrayList();
             while (resultSet.next()) {
-                borrowAndReturnsObList.add(new BorrowAndReturn(
+                borrowAndReturnsObList.add(new BorrowedBooks(
                         resultSet.getString("recordID"),
                         resultSet.getString("userID"),
                         resultSet.getString("bookID"),
@@ -45,7 +45,7 @@ public class BorrowAndReturnController implements BorrowAndReturnService {
     }
 
     @Override
-    public boolean updateBorrowAndReturn(BorrowAndReturn borrowAndReturn) {
+    public boolean updateBorrowAndReturn(BorrowedBooks borrowAndReturn) {
         String sql = "UPDATE borrow_return SET userID=?, bookID=?, borrowDate=?, returnDate=?, fine=? WHERE recordID=?";
         try (Connection connection = Db_Connection.getInstance().getConnection()) {
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class BorrowAndReturnController implements BorrowAndReturnService {
     }
 
     @Override
-    public BorrowAndReturn searchBorrowAndReturn(String recordID) {
+    public BorrowedBooks searchBorrowAndReturn(String recordID) {
         String sql = "SELECT * FROM borrow_return WHERE recordID=?";
         try (Connection connection = Db_Connection.getInstance().getConnection()) {
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class BorrowAndReturnController implements BorrowAndReturnService {
             ResultSet resultSet = stm.executeQuery();
 
             if (resultSet.next()) {
-                return new BorrowAndReturn(
+                return new BorrowedBooks(
                         resultSet.getString("recordID"),
                         resultSet.getString("userID"),
                         resultSet.getString("bookID"),
@@ -101,7 +101,7 @@ public class BorrowAndReturnController implements BorrowAndReturnService {
     }
 
     @Override
-    public boolean saveBorrowAndReturn(BorrowAndReturn borrowAndReturn) {
+    public boolean saveBorrowAndReturn(BorrowedBooks borrowAndReturn) {
         String sql = "INSERT INTO borrow_return (recordID, userID, bookID, borrowDate, returnDate, fine) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = Db_Connection.getInstance().getConnection()) {
             PreparedStatement stm = connection.prepareStatement(sql);

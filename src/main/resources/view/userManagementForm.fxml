@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="445.0" prefWidth="829.0" style="-fx-background-color: #fab1a0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserManagementFormController">
+<AnchorPane prefHeight="445.0" prefWidth="829.0" style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserManagementFormController">
    <children>
-      <Label layoutX="175.0" prefHeight="60.0" prefWidth="542.0" text="User Management System">
+      <Label layoutX="175.0" prefHeight="60.0" prefWidth="542.0" text="User Management System" textFill="#dcbdbd">
          <font>
             <Font name="Bodoni MT Condensed Bold" size="50.0" />
          </font>
@@ -22,25 +22,25 @@
             <Image url="@../images/userMng.jpg" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtUserID" layoutX="22.0" layoutY="99.0" promptText="User ID" style="-fx-background-color: #bdc3c7;" />
-      <JFXTextField fx:id="txtContact" layoutX="22.0" layoutY="197.0" promptText="Contact" style="-fx-background-color: #bdc3c7;" text="Contact" />
-      <JFXTextField fx:id="txtUserName" layoutX="22.0" layoutY="145.0" promptText="User Name" style="-fx-background-color: #bdc3c7;" text="User Name" />
-      <JFXButton fx:id="btnAdd" layoutX="78.0" layoutY="352.0" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #3498db;" text="Add" textFill="#f4f2f2">
+      <JFXTextField fx:id="txtUserID" layoutX="22.0" layoutY="157.0" promptText="User ID" style="-fx-background-color: #bdc3c7;" />
+      <JFXTextField fx:id="txtContact" layoutX="22.0" layoutY="244.0" promptText="Contact" style="-fx-background-color: #bdc3c7;" />
+      <JFXTextField fx:id="txtUserName" layoutX="22.0" layoutY="196.0" promptText="User Name" style="-fx-background-color: #bdc3c7;" />
+      <JFXButton fx:id="btnAdd" layoutX="22.0" layoutY="352.0" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #3498db;" text="Add" textFill="#f4f2f2">
          <font>
             <Font name="Candara Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnDelete" layoutX="636.0" layoutY="352.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #e74c3c;" text="Delete" textFill="#f4f2f2">
+      <JFXButton fx:id="btnDelete" layoutX="649.0" layoutY="352.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #e74c3c;" text="Delete" textFill="#f4f2f2">
          <font>
             <Font name="Candara Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnUpdate" layoutX="446.0" layoutY="352.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="#f4f2f2">
+      <JFXButton fx:id="btnUpdate" layoutX="495.0" layoutY="352.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="#f4f2f2">
          <font>
             <Font name="Candara Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnSearch" layoutX="261.0" layoutY="352.0" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #e67e22;" text="Search" textFill="#f4f2f2">
+      <JFXButton fx:id="btnSearch" layoutX="175.0" layoutY="352.0" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #e67e22;" text="Search" textFill="#f4f2f2">
          <font>
             <Font name="Candara Bold" size="18.0" />
          </font>
@@ -50,9 +50,29 @@
           <TableColumn fx:id="colUserID" prefWidth="155.2000274658203" text="User ID" />
           <TableColumn fx:id="colUserName" prefWidth="132.79998779296875" text="User Name" />
             <TableColumn fx:id="colContact" prefWidth="140.800048828125" text="Contact" />
-            <TableColumn fx:id="colMemberDate" prefWidth="166.39996337890625" text="Membership Date" />
+            <TableColumn fx:id="colMemberDate" prefWidth="166.39996337890625" text="Address" />
         </columns>
       </TableView>
-      <Label fx:id="lblDate" layoutX="22.0" layoutY="248.0" prefHeight="18.0" prefWidth="135.0" style="-fx-background-color: #bdc3c7;" text="Date" />
+      <Label fx:id="lbl_Date" layoutX="25.0" layoutY="117.0" prefHeight="18.0" prefWidth="172.0" text="YY/MM/DD" textFill="#dedfd6">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="78.0" prefHeight="18.0" prefWidth="62.0" text=" Date :" textFill="#ec0505">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtContact1" layoutX="22.0" layoutY="287.0" promptText="Address" style="-fx-background-color: #bdc3c7;" />
+      <JFXButton fx:id="btnView" layoutX="333.0" layoutY="352.0" onAction="#btnViewOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #FC427B;" text="View" textFill="#f4f2f2">
+         <font>
+            <Font name="Candara Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnBack" layoutX="649.0" layoutY="395.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #2C3A47;" text="Back" textFill="#f4f2f2">
+         <font>
+            <Font name="Candara Bold" size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

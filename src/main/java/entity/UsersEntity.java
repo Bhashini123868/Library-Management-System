@@ -1,4 +1,4 @@
-package model;
+package entity;
 
 
 import lombok.*;
@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 
-public class Users {
+public class UsersEntity {
     private String userID;
     private  String userName;
     private  String contact;

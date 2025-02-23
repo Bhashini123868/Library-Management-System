@@ -4,9 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,7 +30,7 @@ public class DashboardFormController {
     }
 
     public void btnBorrowReturnOnAction(ActionEvent actionEvent) throws IOException {
-        URL resource = this.getClass().getResource("/view/borrowAndReturnBooks.fxml");
+        URL resource = this.getClass().getResource("/view/StaffManagement.fxml");
 
         assert resource!= null;
 
@@ -52,7 +50,7 @@ public class DashboardFormController {
     }
 
     public void btnFineManagementOnAction(ActionEvent actionEvent) throws IOException {
-        URL resource = this.getClass().getResource("/view/FineManagementForm.fxml");
+        URL resource = this.getClass().getResource("/view/BorrowedBooks.fxml");
 
         assert resource!=null;
 

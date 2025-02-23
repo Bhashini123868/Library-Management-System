@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Ancor_Return_Book" prefHeight="581.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Forms.ReturnBooks_Form">
+   <children>
+      <Label layoutX="202.0" layoutY="10.0" prefHeight="51.0" prefWidth="236.0" text="Return Books">
+         <font>
+            <Font name="System Bold Italic" size="35.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#192943" height="84.0" layoutY="-1.0" stroke="#133e87" strokeType="INSIDE" width="754.0" />
+      <Label layoutX="220.0" layoutY="11.0" prefHeight="60.0" prefWidth="286.0" text=" Return Books" textFill="#d77a7a">
+         <font>
+            <Font name="Bodoni MT Condensed Bold" size="50.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="499.0" fitWidth="754.0" layoutY="82.0">
+         <image>
+            <Image url="@../images/bookmng.jpg" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="combo_browid" layoutX="23.0" layoutY="117.0" onAction="#combo_Browedid_Action" prefWidth="150.0" promptText="Brrowd Id" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <TextField fx:id="txt_bookid" editable="false" layoutX="207.0" layoutY="117.0" promptText="BookId" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <TextField fx:id="txt_Member_id" editable="false" layoutX="390.0" layoutY="117.0" promptText="Member Id" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <TextField fx:id="txt_Staff_id" editable="false" layoutX="560.0" layoutY="117.0" promptText="Staff id" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <TextField fx:id="txt_Broowed_date" editable="false" layoutX="207.0" layoutY="172.0" promptText="Broowed  Date" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <TextField fx:id="is_Browwed" editable="false" layoutX="390.0" layoutY="172.0" promptText="Broowed" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <Label layoutX="24.0" layoutY="187.0" prefHeight="30.0" prefWidth="148.0" text="Return Date:" textFill="#d90000">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lable_Date" layoutX="23.0" layoutY="222.0" prefHeight="26.0" prefWidth="136.0" text="YY/MM/DD" textFill="#100000">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="return_on_time" layoutX="390.0" layoutY="243.0" prefHeight="30.0" prefWidth="148.0" promptText="Return_on_time" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <TextField fx:id="txt_Amount" layoutX="560.0" layoutY="243.0" promptText="Amount" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <TextField fx:id="txt_returnid" layoutX="207.0" layoutY="243.0" promptText="Return  id" style="-fx-border-color: #133e87;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <Button layoutX="23.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnFindOnAction" prefHeight="27.0" prefWidth="136.0" style="-fx-background-color: #1B9CFC;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" text="Fine" textFill="#f4eeee">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="206.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnViewOnAction" prefHeight="27.0" prefWidth="136.0" style="-fx-background-color: #1B9CFC;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" text="View" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="390.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnDetailsOnAction" prefHeight="27.0" prefWidth="136.0" style="-fx-background-color: #1B9CFC;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" text="Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="572.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="27.0" prefWidth="136.0" style="-fx-background-color: #1B9CFC;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="28.0" layoutY="98.0" prefHeight="18.0" prefWidth="70.0" text="Brrowd id">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="217.0" layoutY="99.0" prefHeight="18.0" prefWidth="60.0" text="Book ID">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="408.0" layoutY="97.0" prefHeight="22.0" prefWidth="126.0" text="Member ID">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="216.0" layoutY="155.0" prefHeight="22.0" prefWidth="120.0" text="Broowed Date">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="395.0" layoutY="155.0" prefHeight="22.0" prefWidth="107.0" text="is Browwed">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="563.0" layoutY="99.0" prefHeight="18.0" prefWidth="70.0" text="Staff id">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="206.0" layoutY="225.0" prefHeight="22.0" prefWidth="126.0" text="Return date">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="395.0" layoutY="223.0" prefHeight="22.0" prefWidth="126.0" text="Return on Time">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="569.0" layoutY="224.0" prefHeight="18.0" prefWidth="60.0" text="Amount">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblBorrowAndReturn" layoutX="15.0" layoutY="360.0" prefHeight="206.0" prefWidth="718.0">
+         <columns>
+            <TableColumn fx:id="colRecordID" prefWidth="92.0" text="ReturnId" />
+            <TableColumn fx:id="colUserID" prefWidth="95.20001220703125" text="BroowedId" />
+            <TableColumn fx:id="colBookID" prefWidth="120.0" text="Book ID" />
+            <TableColumn fx:id="colBorrowdate" prefWidth="136.0" text="ReturnDate" />
+            <TableColumn fx:id="colReturnDate" prefWidth="128.79995727539062" text="Fine Ammount" />
+            <TableColumn fx:id="colFine" prefWidth="145.5999755859375" text="Return Status" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

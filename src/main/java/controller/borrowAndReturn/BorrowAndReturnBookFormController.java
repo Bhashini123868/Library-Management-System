@@ -12,7 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.BorrowAndReturn;
+import model.BorrowedBooks;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,10 +28,10 @@ public class BorrowAndReturnBookFormController implements Initializable {
     private JFXButton btnAdd, btnDelete, btnSearch, btnUpdate;
 
     @FXML
-    private TableColumn<BorrowAndReturn, String> colRecordID, colUserID, colBookID, colBorrowdate, colReturnDate, colFine;
+    private TableColumn<BorrowedBooks, String> colRecordID, colUserID, colBookID, colBorrowdate, colReturnDate, colFine;
 
     @FXML
-    private TableView<BorrowAndReturn> tblBorrowAndReturn;
+    private TableView<BorrowedBooks> tblBorrowAndReturn;
 
     @FXML
     private JFXTextField txtBookID, txtBorrowDate, txtFine, txtRecordID, txtReturnDate, txtUserID;
@@ -40,7 +40,7 @@ public class BorrowAndReturnBookFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-        BorrowAndReturn record = new BorrowAndReturn(
+        BorrowedBooks record = new BorrowedBooks(
                 txtRecordID.getText(),
                 txtUserID.getText(),
                 txtBookID.getText(),
@@ -55,7 +55,7 @@ public class BorrowAndReturnBookFormController implements Initializable {
             loadTable();
         }
 
-        borrowAndReturnList.add(new BorrowAndReturn(
+        borrowAndReturnList.add(new BorrowedBooks(
                 txtRecordID.getText(),
                 txtUserID.getText(),
                 txtBookID.getText(),
@@ -144,10 +144,10 @@ public class BorrowAndReturnBookFormController implements Initializable {
         }
     }
 
-    List<BorrowAndReturn> borrowAndReturnList = new ArrayList<>();
+    List<BorrowedBooks> borrowAndReturnList = new ArrayList<>();
     private void loadTable() {
         try {
-            ObservableList<BorrowAndReturn> borrowAndReturnListObList = FXCollections.observableArrayList();
+            ObservableList<BorrowedBooks> borrowAndReturnListObList = FXCollections.observableArrayList();
             borrowAndReturnListObList.addAll(BorrowAndReturnController.getInstance().getAll());
             tblBorrowAndReturn.setItems(borrowAndReturnListObList);
 
@@ -173,7 +173,7 @@ public class BorrowAndReturnBookFormController implements Initializable {
         });
     }
 
-    public void setTextToValues(BorrowAndReturn borrowAndReturn) {
+    public void setTextToValues(BorrowedBooks borrowAndReturn) {
         txtRecordID.setText(borrowAndReturn.getRecordID());
         txtUserID.setText(borrowAndReturn.getUserID());
         txtBookID.setText(borrowAndReturn.getBookID());

@@ -10,16 +10,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login.libraryHomePageController">
     <children>
-        <AnchorPane prefHeight="513.0" prefWidth="703.0" style="-fx-background-color: #fab1a0;">
+        <AnchorPane prefHeight="513.0" prefWidth="703.0" style="-fx-background-color: #2C3A47;">
             <children>
 
 
-                <Label layoutX="96.0" layoutY="14.0" prefHeight="75.0" prefWidth="562.0" text="Library Management " textFill="#8e0f3b">
+                <Label layoutX="96.0" layoutY="14.0" prefHeight="75.0" prefWidth="562.0" text="Library Management " textFill="#e4d4da">
                     <font>
                         <Font name="Gill Sans Ultra Bold Condensed" size="60.0" />
                     </font>
                 </Label>
-                <Label layoutX="251.0" layoutY="84.0" prefHeight="75.0" prefWidth="208.0" text="System" textFill="#8e0f3b">
+                <Label layoutX="251.0" layoutY="84.0" prefHeight="75.0" prefWidth="208.0" text="System" textFill="#d4c9cd">
                     <font>
                         <Font name="Gill Sans Ultra Bold Condensed" size="60.0" />
                     </font>
@@ -46,21 +46,21 @@
             </ImageView>
 
 
-                <JFXButton fx:id="btnWelcome" layoutX="528.0" layoutY="422.0" onAction="#btnWelcomeOnAction" prefHeight="31.0" prefWidth="144.0" style="-fx-background-color: #e17055;" text="Welcome" textFill="#f7efef">
+                <JFXButton fx:id="btnWelcome" layoutX="491.0" layoutY="411.0" onAction="#btnWelcomeOnAction" prefHeight="42.0" prefWidth="182.0" style="-fx-background-color: #2C3A47;" text="Welcome" textFill="#f7efef">
                     <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Britannic Bold" size="19.0" />
                     </font>
                 </JFXButton>
 
 
-                <Label layoutX="327.0" layoutY="494.0" prefHeight="24.0" prefWidth="346.0" text="\@2025 | Booklib(PVT).ltd">
+                <Label layoutX="11.0" layoutY="494.0" prefHeight="24.0" prefWidth="662.0" text="\@2025 | Booklib(PVT).ltd" textFill="#d1c3c3">
                     <font>
                         <Font name="Eras Bold ITC" size="20.0" />
                     </font>
                 </Label>
 
 
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb8b8" height="105.0" layoutX="22.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" width="513.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c7bfbf" height="105.0" layoutX="22.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" width="513.0" />
                 <Label layoutX="34.0" layoutY="209.0" prefHeight="31.0" prefWidth="488.0" text="bringing the library to your fingertips">
                     <font>
                         <Font name="Bodoni MT Black" size="25.0" />
@@ -78,7 +78,7 @@
                         <Font name="Bodoni MT Black" size="25.0" />
                     </font>
                 </Label>
-            <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="536.0" layoutY="425.0">
+            <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="503.0" layoutY="420.0">
                <image>
                   <Image url="@../images/login.png" />
                </image>
