@@ -1,4 +1,10 @@
 package service.custom;
 
-public interface LoginService {
+import entity.LoginEntity;
+import service.SuperService;
+
+import java.sql.SQLException;
+
+public interface LoginService extends SuperService {
+    LoginEntity getUser(String user_name , String password) throws SQLException;
 }

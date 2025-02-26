@@ -1,257 +1,113 @@
 package controller.book;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.*;
 import model.Book;
+import service.ServiceFactory;
+import service.custom.BookService;
+import util.ServiceType;
 
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
-
-public class BookManagementFormController implements Initializable {
-
-    public JFXComboBox cmbBookID;
-    @FXML
-    private JFXButton btnAdd;
+public class BookManagementFormController {
 
     @FXML
-    private JFXButton btnDelete;
-
-    @FXML
-    private JFXButton btnSearch;
-
-    @FXML
-    private JFXButton btnUpdate;
-
-    @FXML
-    private TableColumn<?, ?> colAuthor;
-
-    @FXML
-    private TableColumn<?, ?> colAvailibility;
-
-    @FXML
-    private TableColumn<?, ?> colBookID;
-
-    @FXML
-    private TableColumn<?, ?> colGenre;
-
-    @FXML
-    private TableColumn<?, ?> colISBN;
-
-    @FXML
-    private TableColumn<?, ?> colTitle;
-
+    private TextField txtBookID, txtTitle, txtAuthor, txtISBN, txtGenre, txtAvailability;
     @FXML
     private TableView<Book> tblBook;
-
     @FXML
-    private JFXTextField txtAuthor;
+    private TableColumn<Book, String> colBookID, colTitle, colAuthor, colISBN, colGenre, colAvailability;
 
-    @FXML
-    private JFXTextField txtAvailibility;
-
-    @FXML
-    private JFXTextField txtBookID;
-
-    @FXML
-    private JFXTextField txtGenre;
-
-    @FXML
-    private JFXTextField txtISBN;
-
-    @FXML
-    private JFXTextField txtTitle;
+    private final BookService bookService = ServiceFactory.getInstance().getServiceType(ServiceType.AddBooks);
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-        try {
-        Book book = new Book(
-                txtBookID.getText(),
-                txtISBN.getText(),
-                txtTitle.getText(),
-                txtAuthor.getText(),
-                txtGenre.getText(),
-                Boolean.parseBoolean(txtAvailibility.getText())
-        );
-        boolean isAdded = BookManagementController.getInstance().saveBook(book);
-        if (isAdded){
-            new Alert(Alert.AlertType.CONFIRMATION, "Book Added Successfully!").show();
-            loadTable();
-        }
-        bookList.add(new Book(
-                txtBookID.getText(),
-                txtISBN.getText(),
-                txtTitle.getText(),
-                txtAuthor.getText(),
-                txtGenre.getText(),
-                Boolean.parseBoolean(txtAvailibility.getText())
-        ));
-        txtBookID.clear();
-        txtISBN.clear();
-        txtTitle.clear();
-        txtAuthor.clear();
-        txtGenre.clear();
-        txtAvailibility.clear();
+        // Convert txtAvailability to boolean, assuming "true" or "false" are the expected values
+        boolean availability = Boolean.parseBoolean(txtAvailability.getText());
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        // Create the Book object
+        Book book = new Book(txtBookID.getText(), txtTitle.getText(), txtAuthor.getText(),
+                txtISBN.getText(), txtGenre.getText(), availability);  // Assuming Book's constructor accepts boolean for availability
 
+        boolean isAdded = bookService.addBook(book);
+        if (isAdded) {
+            showAlert("Success", "Book added successfully!", Alert.AlertType.INFORMATION);
+            refreshTable();
+        } else {
+            showAlert("Error", "Failed to add book!", Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        try {
-            String bookID = txtBookID.getText();
-            boolean isDeleted = BookManagementController.getInstance().deleteBook(bookID);
-
-            if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Book Deleted Successfully!").show();
-                loadTable();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Book Not Found or Delete Failed!").show();
-            }
-
-            txtBookID.clear();
-            txtISBN.clear();
-            txtTitle.clear();
-            txtAuthor.clear();
-            txtGenre.clear();
-            txtAvailibility.clear();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    void btnSearchOnAction(ActionEvent event) {
-        try {
-            Book book = BookManagementController.getInstance().searchBook(txtBookID.getText());
-            if (book !=null){
-                txtISBN.setText(book.getISBN());
-                txtTitle.setText(book.getTitle());
-                txtAuthor.setText(book.getAuthor());
-                txtGenre.setText(book.getGenre());
-                txtAvailibility.setText(book.getAvailability() +"");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        String bookID = txtBookID.getText();
+        boolean isDeleted = bookService.deleteBook(bookID);
+        if (isDeleted) {
+            showAlert("Success", "Book deleted successfully!", Alert.AlertType.INFORMATION);
+            refreshTable();
+        } else {
+            showAlert("Error", "Failed to delete book!", Alert.AlertType.ERROR);
         }
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        try {
-        Book book = new Book(
-                txtBookID.getText(),
-                txtISBN.getText(),
-                txtTitle.getText(),
-                txtAuthor.getText(),
-                txtGenre.getText(),
-                Boolean.parseBoolean(txtAvailibility.getText())
-        );
+        // Convert txtAvailability to boolean, assuming "true" or "false" are the expected values
+        boolean availability = Boolean.parseBoolean(txtAvailability.getText());
 
-            boolean isUpdate = BookManagementController.getInstance().updateBook(book);
-            if (isUpdate){
-                new Alert(Alert.AlertType.CONFIRMATION, "Book Updated Successfully!").show();
-                loadTable();
-            }
-            txtBookID.clear();
-            txtISBN.clear();
-            txtTitle.clear();
-            txtAuthor.clear();
-            txtGenre.clear();
-            txtAvailibility.clear();
+        // Create the Book object
+        Book book = new Book(txtBookID.getText(), txtTitle.getText(), txtAuthor.getText(),
+                txtISBN.getText(), txtGenre.getText(), availability);  // Assuming Book's constructor accepts boolean for availability
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    List<Book> bookList = new ArrayList<>();
-    private void loadTable () {
-        try {
-            ObservableList<Book> bookObList = FXCollections.observableArrayList();
-
-            bookObList.addAll(BookManagementController.getInstance().getAll());
-
-            tblBook.setItems(bookObList);
-
-            colBookID.setCellValueFactory(new PropertyValueFactory<>("bookID"));
-            colISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
-            colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-            colAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
-            colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
-            colAvailibility.setCellValueFactory(new PropertyValueFactory<>("availability"));
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+        boolean isUpdated = bookService.updateBook(book);
+        if (isUpdated) {
+            showAlert("Success", "Book updated successfully!", Alert.AlertType.INFORMATION);
+            refreshTable();
+        } else {
+            showAlert("Error", "Failed to update book!", Alert.AlertType.ERROR);
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadTable();
-//        loadBookIDs();
-        tblBook.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-            if (newValue != null) {
-                setTextToValues((Book) newValue);
-            }
-        });
-
+    @FXML
+    void btnSearchOnAction(ActionEvent event) {
+        String bookID = txtBookID.getText();
+        Book book = bookService.searchBook(bookID);
+        if (book != null) {
+            txtTitle.setText(book.getTitle());
+            txtAuthor.setText(book.getAuthor());
+            txtISBN.setText(book.getISBN());
+            txtGenre.setText(book.getGenre());
+            txtAvailability.setText(String.valueOf(book.isAvailable())); // Assuming book.isAvailable() is a boolean
+        } else {
+            showAlert("Not Found", "No book found with ID: " + bookID, Alert.AlertType.WARNING);
+        }
     }
 
-    public void setTextToValues (Book book){
-        txtBookID.setText(book.getBookID());
-        txtISBN.setText(book.getISBN());
-        txtTitle.setText(book.getTitle() );
-        txtAuthor.setText(book.getAuthor());
-        txtGenre.setText(book.getGenre());
-        txtAvailibility.setText(book.getAvailability() + "");
-    }
-//    private void loadBookIDs() {
-//        try {
-//            ObservableList<String> bookIDList = FXCollections.observableArrayList();
-//            List<Book> books = BookManagementController.getInstance().getAll(); // All books from DB
-//
-//            for (Book book : books) {
-//                bookIDList.add(book.getBookID());
-//            }
-//
-//            cmbBookID.setItems(bookIDList);
-//
-//        } catch (SQLException | ClassNotFoundException e) {
-//            new Alert(Alert.AlertType.ERROR, "Error Loading Book IDs: " + e.getMessage()).show();
-//        }
-//    }
+    @FXML
+    public void initialize() {
+        colBookID.setCellValueFactory(cellData -> cellData.getValue().bookIDProperty());
+        colTitle.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
+        colAuthor.setCellValueFactory(cellData -> cellData.getValue().authorProperty());
+        colISBN.setCellValueFactory(cellData -> cellData.getValue().isbnProperty());
+        colGenre.setCellValueFactory(cellData -> cellData.getValue().genreProperty());
+        colAvailability.setCellValueFactory(cellData -> cellData.getValue().availabilityProperty());
 
-//    public void cmbBookIDOnAction(ActionEvent actionEvent) {
-//        String selectedBookID = (String) cmbBookID.getValue(); // Get selected ID
-//
-//        try {
-//            Book book = BookManagementController.getInstance().searchBook(selectedBookID);
-//            if (book != null) {
-//                setTextToValues(book);
-//            } else {
-//                new Alert(Alert.AlertType.WARNING, "Book Not Found!").show();
-//            }
-//        } catch (SQLException e) {
-//            new Alert(Alert.AlertType.ERROR, "Database Error: " + e.getMessage()).show();
-//        }
-//
-//    }
+        refreshTable();
+    }
+
+    private void refreshTable() {
+        List<Book> books = bookService.getAllBooks();
+        ObservableList<Book> bookList = FXCollections.observableArrayList(books);
+        tblBook.setItems(bookList);
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

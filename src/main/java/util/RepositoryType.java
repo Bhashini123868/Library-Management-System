@@ -2,7 +2,7 @@ package util;
 
 public enum RepositoryType {
     Book,
-    Member,
+    User,
     Staff,
     Login
 }

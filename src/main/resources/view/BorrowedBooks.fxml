@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="614.0" prefWidth="791.0" style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login.FineManagementFormController">
+<AnchorPane prefHeight="614.0" prefWidth="791.0" style="-fx-background-color: #2C3A47;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.borrowedBooks.BorrowedBooksFormController">
    <children>
       <Label layoutX="160.0" layoutY="14.0" prefHeight="18.0" prefWidth="415.0" text="Borrowed Books" textFill="#e1cdcd">
          <font>
@@ -52,14 +52,14 @@
          </font>
       </Label>
       <ComboBox fx:id="combo_Bookid" layoutX="24.0" layoutY="119.0" onAction="#Combo_Book_Action" prefWidth="150.0" promptText="Book ID" style="-fx-background-color: #f6e58d;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
-      <ComboBox fx:id="combo_Memberid" layoutX="24.0" layoutY="176.0" onAction="#combo_Memeberid_Action" prefHeight="26.0" prefWidth="150.0" promptText="User ID" style="-fx-background-color: #f6e58d;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
+      <ComboBox fx:id="combo_UserID" layoutX="24.0" layoutY="176.0" onAction="#combo_Memeberid_Action" prefHeight="26.0" prefWidth="150.0" promptText="User ID" style="-fx-background-color: #f6e58d;" stylesheets="@../../../../../../revision/Library_Mangemnt_System_-master/Library_Mangemnt_System_-master/src/main/resources/css/Login.css" />
       <ComboBox fx:id="combo_Staffid" layoutX="24.0" layoutY="229.0" onAction="#combo_staffid_Action" prefWidth="150.0" promptText="Staff ID" style="-fx-background-color: #f6e58d;" />
       <Label layoutX="31.0" layoutY="271.0" prefHeight="27.0" prefWidth="52.0" text="Date :" textFill="#ec0000">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lbl_date" layoutX="32.0" layoutY="295.0" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #f6e58d;" text="yy/mm/dd">
+      <Label fx:id="lblDate" layoutX="32.0" layoutY="295.0" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #f6e58d;" text="yy/mm/dd">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
@@ -148,7 +148,7 @@
       <JFXTextField fx:id="txtMemberDate" alignment="CENTER" layoutX="641.0" layoutY="176.0" promptText="Membership Date" style="-fx-background-color: #f6e58d;" />
       <JFXTextField fx:id="txtPhoneNumber2" alignment="CENTER" layoutX="496.0" layoutY="233.0" promptText="Phone Number" style="-fx-background-color: #f6e58d;" />
       <JFXTextField fx:id="txtEmail1" alignment="CENTER" layoutX="195.0" layoutY="292.0" promptText="Borrowed ID" style="-fx-background-color: #f6e58d;" />
-      <JFXTextField fx:id="txtEmail2" alignment="CENTER" layoutX="345.0" layoutY="292.0" style="-fx-background-color: #f6e58d;" />
+      <JFXTextField fx:id="txtYesNo" alignment="CENTER" layoutX="345.0" layoutY="292.0" style="-fx-background-color: #f6e58d;" />
       <TableView fx:id="tblBorrowAndReturn" layoutX="22.0" layoutY="352.0" prefHeight="221.0" prefWidth="754.0">
          <columns>
             <TableColumn fx:id="colRecordID" prefWidth="128.79998779296875" text="Borrowed ID" />

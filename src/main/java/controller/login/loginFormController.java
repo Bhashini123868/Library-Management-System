@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.Login;
-import model.Users;
 import org.jasypt.util.text.BasicTextEncryptor;
 
 import java.io.IOException;

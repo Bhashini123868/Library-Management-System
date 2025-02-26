@@ -2,7 +2,7 @@ package util;
 
 public enum ServiceType {
     AddBooks,
-    AddMember,
+    AddUser,
     AddStaff,
     Login
 }

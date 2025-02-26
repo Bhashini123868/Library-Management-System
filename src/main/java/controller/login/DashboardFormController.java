@@ -17,6 +17,9 @@ public class DashboardFormController {
     public JFXButton btnReport;
 
     public AnchorPane loadFormContent;
+    public JFXButton btnReturn;
+    public JFXButton btnBorrowed;
+    public JFXButton btnStaff;
 
     public void btnBookManagementOnAction(ActionEvent actionEvent) throws IOException {
         URL resource = this.getClass().getResource("/view/bookManagementForm.fxml");
@@ -67,5 +70,14 @@ public class DashboardFormController {
         Parent load = FXMLLoader.load(resource);
         this.loadFormContent.getChildren().clear();
         this.loadFormContent.getChildren().add(load);
+    }
+
+    public void btnStaffOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnBorrowedOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnReturnOnAction(ActionEvent actionEvent) {
     }
 }

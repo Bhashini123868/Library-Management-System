@@ -1,14 +1,13 @@
-package controller.user;
+package controller.staff;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class UserManagementFormController {
+public class StaffManagementFormController {
 
     @FXML
     private JFXButton btnAdd;
@@ -29,34 +28,31 @@ public class UserManagementFormController {
     private JFXButton btnView;
 
     @FXML
-    private TableColumn<?, ?> colContact;
+    private TableColumn<?, ?> colBookID;
 
     @FXML
-    private TableColumn<?, ?> colMemberDate;
+    private TableColumn<?, ?> colBorrowdate;
+
+    @FXML
+    private TableColumn<?, ?> colRecordID;
 
     @FXML
     private TableColumn<?, ?> colUserID;
 
     @FXML
-    private TableColumn<?, ?> colUserName;
+    private TableView<?> tblBorrowAndReturn;
 
     @FXML
-    private Label lbl_Date;
+    private JFXTextField txtEmail;
 
     @FXML
-    private TableView<?> tblUser;
+    private JFXTextField txtName;
 
     @FXML
-    private JFXTextField txtContact;
+    private JFXTextField txtPhoneNumber;
 
     @FXML
-    private JFXTextField txtContact1;
-
-    @FXML
-    private JFXTextField txtUserID;
-
-    @FXML
-    private JFXTextField txtUserName;
+    private JFXTextField txtStaffID;
 
     @FXML
     void btnAddOnAction(ActionEvent event) {

@@ -12,6 +12,7 @@ public class Book {
     private String ISBN;
     private String Title;
     private String Author;
-    private String language;
+    private String genre;
+    private boolean availability;
 
 }
