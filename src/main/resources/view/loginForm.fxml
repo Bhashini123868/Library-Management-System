@@ -7,90 +7,50 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="525.0" prefWidth="669.0" style="-fx-background-color: #fab1a0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login.loginFormController">
+<AnchorPane prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.login.LoginFormController">
    <children>
-      <ImageView fitHeight="525.0" fitWidth="341.0">
-         <image>
-            <Image url="@../images/img.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="86.0" layoutY="148.0" prefHeight="70.0" prefWidth="206.0" text="Library " textFill="#080808">
-         <font>
-            <Font name="Impact" size="48.0" />
-         </font>
-      </Label>
-      <Label layoutX="32.0" layoutY="203.0" prefHeight="60.0" prefWidth="289.0" text="Management" textFill="#0d0d0d">
-         <font>
-            <Font name="Impact" size="48.0" />
-         </font>
-      </Label>
-      <Label layoutX="82.0" layoutY="263.0" prefHeight="60.0" prefWidth="214.0" text="System" textFill="#050505">
-         <font>
-            <Font name="Impact" size="48.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="txtUserName" layoutX="431.0" layoutY="183.0" promptText="User Name" />
-      <Label layoutX="25.0" layoutY="483.0" prefHeight="26.0" prefWidth="306.0" text="\@2025 | @BookLib (PVT) Ltd" textFill="#101010">
-         <font>
-            <Font name="Bodoni MT Black" size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="372.0" layoutY="108.0" prefHeight="40.0" prefWidth="266.0" text="MEMBER LOGIN" textFill="#fcfcfc">
-         <font>
-            <Font name="Franklin Gothic Medium" size="35.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="84.0" fitWidth="87.0" layoutX="448.0" layoutY="14.0">
-         <image>
-            <Image url="@../images/user-login.png" />
-         </image>
-      </ImageView>
-      <JFXButton fx:id="btnLogin" layoutX="432.0" layoutY="293.0" onAction="#btnLoginOnAction" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #ff7675;" text="L o g i n" textFill="#faf8f8">
-         <font>
-            <Font name="Arial Narrow Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <Label layoutX="380.0" layoutY="474.0" prefHeight="22.0" prefWidth="135.0" text="Not a Member ? ">
-         <font>
-            <Font name="Candara" size="16.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="btnSignin" layoutX="499.0" layoutY="471.0" onAction="#btnSigninOnAction" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #ff7675;" text=" Signin" textFill="#faf8f8">
-         <font>
-            <Font name="Arial Narrow Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <ImageView fitHeight="27.0" fitWidth="35.0" layoutX="388.0" layoutY="182.0">
+      <HBox prefHeight="550.0" prefWidth="750.0" spacing="0">
+         <children>
+            <!-- Left Side: Auto-Sliding Image Gallery -->
+            <StackPane prefWidth="400.0">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="550.0" fitWidth="400.0" preserveRatio="false">
+                     <image>
+                        <Image url="@../images/library%20login.jpg" />
+                     </image></ImageView>
+               </children>
+            </StackPane>
 
-      </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="35.0" layoutX="388.0" layoutY="236.0">
+            <!-- Right Side: Login Form -->
+            <VBox alignment="CENTER" prefWidth="350.0" spacing="15.0" style="-fx-background-color: #f4f8ff; -fx-padding: 40px; -fx-border-radius: 10px;">
+               <children>
+                  <Label text="BookLib.PVT">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
 
-      </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="35.0" layoutX="388.0" layoutY="236.0">
-         <image>
-            <Image url="@../images/pssword.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="35.0" layoutX="388.0" layoutY="182.0">
-         <image>
-            <Image url="@../images/user-icon.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="436.0" layoutY="300.0">
-         <image>
-            <Image url="@../images/login.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="519.0" layoutY="471.0">
+                  <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Welcome!!">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label style="-fx-font-size: 13px; -fx-text-fill: #666;" text="Login to your account" />
 
-      </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="503.0" layoutY="474.0">
-         <image>
-            <Image url="@../images/signin.png" />
-         </image>
-      </ImageView>
-      <JFXPasswordField fx:id="txtPassword" layoutX="431.0" layoutY="237.0" promptText="Password" />
+                  <JFXTextField fx:id="emailTxtField" promptText="Email" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" />
+                  <JFXPasswordField fx:id="passwordTxtField" promptText="Password" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" />
+
+                  <JFXButton onAction="#btnLoginOnAction" style="-fx-background-color: #e55039; -fx-text-fill: white; -fx-pref-width: 280px; -fx-font-size: 14px; -fx-padding: 10px; -fx-border-radius: 5px;" text="Login" />
+
+                  <Label onMouseClicked="#fogotPasswordBtnOnAction" style="-fx-text-fill: #0056b3; -fx-font-size: 12px; -fx-cursor: hand;" text="Forgot your password?" />
+                  <JFXButton onAction="#btnSignUpOnAction" style="-fx-text-fill: #0056b3; -fx-font-size: 14px;" text="Create an account" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -1,72 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="445.0" prefWidth="829.0" style="-fx-background-color: #fab1a0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.book.BookManagementFormController">
+<AnchorPane prefHeight="686.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.book.BookManagementFormController">
    <children>
-      <Label layoutX="175.0" prefHeight="60.0" prefWidth="542.0" text="Book Management System">
-         <font>
-            <Font name="Bodoni MT Condensed Bold" size="50.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="384.0" fitWidth="836.0" layoutX="-7.0" layoutY="72.0">
-         <image>
-            <Image url="@../images/bookmng.jpg" />
-         </image>
-      </ImageView>
-      <JFXTextField fx:id="txtISBN" layoutX="30.0" layoutY="143.0" promptText="ISBN" style="-fx-background-color: #dff9fb;" />
-      <JFXTextField fx:id="txtGenre" layoutX="30.0" layoutY="277.0" promptText="Genre" style="-fx-background-color: #dff9fb;" />
-      <JFXTextField fx:id="txtAuthor" layoutX="30.0" layoutY="234.0" promptText="Author" style="-fx-background-color: #dff9fb;" />
-      <JFXTextField fx:id="txtTitle" layoutX="30.0" layoutY="187.0" promptText="Title" style="-fx-background-color: #dff9fb;" />
-      <JFXTextField fx:id="txtAvailibility" layoutX="30.0" layoutY="318.0" promptText="Availibility" style="-fx-background-color: #dff9fb;" />
-      <TableView fx:id="tblBook" layoutX="182.0" layoutY="94.0" prefHeight="250.0" prefWidth="634.0">
-        <columns>
-          <TableColumn fx:id="colBookID" prefWidth="92.0" text="Book ID" />
-          <TableColumn fx:id="colISBN" prefWidth="95.20001220703125" text="ISBN" />
-            <TableColumn fx:id="colTitle" prefWidth="95.199951171875" text="Title" />
-            <TableColumn fx:id="colAuthor" prefWidth="101.60000610351562" text="Author" />
-            <TableColumn fx:id="colGenre" prefWidth="98.4000244140625" text="Genre" />
-            <TableColumn fx:id="colAvailibility" prefWidth="148.80002441406248" text="Availibility" />
-        </columns>
-      </TableView>
-      <JFXButton fx:id="btnAdd" layoutX="14.0" layoutY="373.0" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #2980b9;" text="Add" textFill="#f4f0f0">
-         <font>
-            <Font name="Arial Narrow Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btnUpdate" layoutX="499.0" layoutY="373.0" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #2ecc71;" text="Update" textFill="#f4f0f0">
-         <font>
-            <Font name="Arial Narrow Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btnDelete" layoutX="659.0" layoutY="373.0" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #e74c3c;" text="Delete" textFill="#f4f0f0">
-         <font>
-            <Font name="Arial Narrow Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btnSearch" layoutX="165.0" layoutY="373.0" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #f39c12;" text="Search" textFill="#f4f0f0">
-         <font>
-            <Font name="Arial Narrow Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <JFXTextField fx:id="txtBookID" layoutX="30.0" layoutY="103.0" promptText="BookID" style="-fx-background-color: #dff9fb;" />
-      <JFXButton fx:id="btnView" layoutX="329.0" layoutY="373.0" onAction="#btnViewOnAction" prefHeight="16.0" prefWidth="135.0" style="-fx-background-color: #FC427B;" text="View" textFill="#f4f2f2">
-         <font>
-            <Font name="Candara Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btnBack" layoutX="659.0" layoutY="414.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #2C3A47;" text="Back" textFill="#f4f2f2">
-         <font>
-            <Font name="Candara Bold" size="18.0" />
-         </font>
-      </JFXButton>
+      <AnchorPane prefHeight="686.0" prefWidth="701.0">
+         <children>
+            <AnchorPane layoutY="-1.0" prefHeight="686.0" prefWidth="701.0" style="-fx-background-color: #f8c291;">
+               <children>
+                  <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#190e46" height="88.0" layoutX="-1.0" layoutY="-11.0" width="713.0" />
+                  <ImageView fitHeight="612.0" fitWidth="713.0" layoutY="77.0">
+                     <image>
+                        <Image url="@../../../../../../JavaFX/LibraryManagementSystem/src/main/resources/images/bookmng.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="386.0" layoutY="237.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="Availability Status">
+                     <font>
+                        <Font name="Bauhaus 93" size="15.0" />
+                     </font></Label>
+                  <TextField fx:id="txtAvalabelStatuesField" layoutX="511.0" layoutY="233.0" promptText="Status" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" text="Available" />
+                  <Label layoutX="386.0" layoutY="178.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="Author">
+                     <font>
+                        <Font name="Bauhaus 93" size="15.0" />
+                     </font></Label>
+                  <TextField fx:id="txtAutherField2" layoutX="511.0" layoutY="174.0" promptText="Author" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+                  <Label layoutX="48.0" layoutY="239.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="CategoryID">
+                     <font>
+                        <Font name="Bauhaus 93" size="15.0" />
+                     </font></Label>
+                  <Button layoutX="587.0" layoutY="635.0" mnemonicParsing="false" onAction="#loadTBLOnAction" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #e55039; -fx-text-fill: white; -fx-font-size: 14;" text="Load Tabel" />
+                  <TableView fx:id="tblBook" layoutX="14.0" layoutY="367.0" prefHeight="253.0" prefWidth="683.0" style="-fx-background-color: white; -fx-border-color: #DADADA;">
+                     <columns>
+                        <TableColumn fx:id="bookIdCol" prefWidth="75.20004081726074" text="BookId" />
+                        <TableColumn fx:id="BookIsbnCol" prefWidth="101.5999526977539" text="ISBN" />
+                        <TableColumn fx:id="bookTitleCol" prefWidth="115.20001220703125" text="Title" />
+                        <TableColumn fx:id="bookAutherCol" prefWidth="165.60003662109375" text="Author" />
+                        <TableColumn fx:id="bookCategoryCol" minWidth="1.5999755859375" prefWidth="73.59994506835938" text="Category Id" />
+                        <TableColumn fx:id="bookAvilabiltyCol" prefWidth="152.800048828125" text="Availability Status" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="268.0" layoutY="304.0" mnemonicParsing="false" onAction="#searchBookOnAction" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-size: 14;" text="Search" />
+                  <Button layoutX="375.0" layoutY="304.0" mnemonicParsing="false" onAction="#updateBookOnAction" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #F39C12; -fx-text-fill: white; -fx-font-size: 14;" text="Update" />
+                  <Button layoutX="483.0" layoutY="304.0" mnemonicParsing="false" onAction="#deleteBookOnAction" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 14;" text="Delete" />
+                  <Button layoutX="161.0" layoutY="304.0" mnemonicParsing="false" onAction="#addBookOnAction" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-font-size: 14;" text="Add">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Button>
+                  <Label layoutX="386.0" layoutY="128.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="ISBN:">
+                     <font>
+                        <Font name="Bauhaus 93" size="15.0" />
+                     </font></Label>
+                  <Label alignment="CENTER" layoutX="-2.0" layoutY="14.0" prefHeight="50.0" prefWidth="714.0" text="Book Management" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtIdField" layoutX="173.0" layoutY="123.0" promptText="Book ID" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+                  <TextField fx:id="txtNameField" layoutX="173.0" layoutY="176.0" promptText="Book Name" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+                  <ComboBox fx:id="txtCatogoryField" layoutX="174.0" layoutY="235.0" onAction="#selectCategoryComboOnAction" prefWidth="150.0" promptText="CategoryID" />
+                  <Label layoutX="45.0" layoutY="179.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="Title (Book Name)">
+                     <font>
+                        <Font name="Bauhaus 93" size="15.0" />
+                     </font></Label>
+                  <Label layoutX="48.0" layoutY="127.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="Book ID:">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtIsbnField" layoutX="511.0" layoutY="123.0" promptText="Book ISBN" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
