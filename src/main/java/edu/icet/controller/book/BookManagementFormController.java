@@ -3,6 +3,7 @@ package edu.icet.controller.book;
 import edu.icet.dto.Book;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.BookService;
+import edu.icet.util.Category;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,35 +50,46 @@ public class BookManagementFormController implements Initializable {
     }
 
     public void addBookOnAction(ActionEvent actionEvent) {
-
         try {
-            // Create a MemberDTO object from the form inputs
             String isbn = txtIsbnField.getText();
             String name = txtNameField.getText();
             String author = txtAutherField2.getText();
-            Integer categoryid = Integer.parseInt(txtCatogoryField.getValue().toString());
-            String avalable = txtAvalabelStatuesField.getText();
+            String available = txtAvalabelStatuesField.getText();
 
+            if (txtCatogoryField.getValue() == null) {
+                new Alert(Alert.AlertType.WARNING, "Please select a category!").show();
+                return;
+            }
 
-            Book book = new Book(null, isbn, name, author,categoryid,avalable);
+            String categoryName = txtCatogoryField.getValue().toString();
+            Category selectedCategory = Category.getCategoryByName(categoryName); // Enum එකෙන් category ලබා ගැනීම
 
-            // Call the service layer to add the member
+            if (selectedCategory == null) {
+                new Alert(Alert.AlertType.WARNING, "Invalid category selected!").show();
+                return;
+            }
+
+            Integer categoryId = selectedCategory.getId();
+
+            Book book = new Book(null, isbn, name, author, categoryId, available);
+
             boolean isAdded = bookService.addBook(book);
-            if(isAdded){
-                new Alert(Alert.AlertType.INFORMATION, "Book Addded Scusess !").show();
-            }else{
-                new Alert(Alert.AlertType.INFORMATION, "Book Added Failed!").show();
+            if (isAdded) {
+                new Alert(Alert.AlertType.INFORMATION, "Book Added Successfully!").show();
+            } else {
+                new Alert(Alert.AlertType.INFORMATION, "Book Addition Failed!").show();
             }
 
             refreshTable();
             clearForm();
             loadTheId();
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Invalid category ID format!").show();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Show an error message to the user
         }
-
     }
+
 
     private void loadTheId() {
         String s = bookService.showtheId();

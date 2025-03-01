@@ -44,17 +44,14 @@ public class BorrowBookFormController implements Initializable {
                 borrowDateTxtField.getText().isEmpty() ||
                 returnDatePickerTxtField.getValue() == null) {
 
-            // Show alert if any field is empty
             new Alert(Alert.AlertType.WARNING, "Please fill in all fields!").show();
         } else {
             try {
-                // Get input values
                 String memberId = memberIdTxtxField.getText();
                 String bookId = bookIdTxtField.getText();
-                LocalDate borrowDate = LocalDate.parse(borrowDateTxtField.getText()); // Parse borrow date
-                LocalDate returnDate = returnDatePickerTxtField.getValue(); // Get return date from DatePicker
+                LocalDate borrowDate = LocalDate.parse(borrowDateTxtField.getText());
+                LocalDate returnDate = returnDatePickerTxtField.getValue();
 
-                // Call the service layer to save the borrow record
                 boolean isSaved = borrowService.saveBorrowRecord(memberId, bookId, borrowDate, returnDate);
 
                 if (isSaved) {
@@ -86,7 +83,7 @@ public class BorrowBookFormController implements Initializable {
         Member member = borrowService.searchMemberById(memberId);
 
         if (member != null) {
-            memberIdTxtxField.setText(member.getId());
+            memberIdTxtxField.setText(member.getMemberid());
             memberNameTxtField.setText(member.getName());
             memberContactTxtField.setText(member.getContact());
         } else {

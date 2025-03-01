@@ -28,7 +28,6 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public boolean addMember(Member member) throws SQLException {
 
-        // Generate the next MemberID
         String lastMemberID = memberDao.getLastMemberID();
         String newMemberID = generateNextMemberID(lastMemberID);
 
@@ -90,7 +89,7 @@ public class MemberServiceImpl implements MemberService {
 
     private MemberEntity convertToEntity(Member member) {
         return new MemberEntity(
-                member.getId(),
+                member.getMemberid(),
                 member.getName(),
                 member.getContact(),
                 member.getDate()

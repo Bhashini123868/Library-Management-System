@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="685.0" prefWidth="943.0" style="-fx-background-color: #F4F6F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.dashboard.DashboardFormController">
-    <stylesheets>
+    <stylesheets>:
         <URL value="@dashboard.css" />
     </stylesheets>
 

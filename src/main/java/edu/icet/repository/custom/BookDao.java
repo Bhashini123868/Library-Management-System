@@ -14,4 +14,6 @@ public interface BookDao extends CrudDao<BookEntity,String> {
     String getLastBookID();
 
     boolean updateAvailabilityStatus(String bookId, String borrowed, Connection connection) throws SQLException;
+
+    Integer getCategoryIdByName(String categoryName) throws SQLException;
 }

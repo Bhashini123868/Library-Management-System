@@ -22,7 +22,7 @@ public class FogotPasswordFormController {
         this.email = email;
         this.otp = otp;
         System.out.println("Email: " + email);
-        System.out.println("OTP: " + otp);      // Check if OTP is set correctly
+        System.out.println("OTP: " + otp);
     }
 
 

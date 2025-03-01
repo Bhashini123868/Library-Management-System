@@ -96,10 +96,10 @@ public class BorrowDaoImpl implements BorrowDao {
             pstm.setString(3, borrowRecord.getBookId());
             pstm.setDate(4, Date.valueOf(borrowRecord.getBorrowDate()));
             pstm.setDate(5, Date.valueOf(borrowRecord.getReturnDate()));
-            pstm.setDate(6, null); // DateGiven is null
-            pstm.setBoolean(7, borrowRecord.isReturned()); // isReturned is false by default
+            pstm.setDate(6, null);
+            pstm.setBoolean(7, borrowRecord.isReturned());
 
-            return pstm.executeUpdate() > 0; // Return true if the record is saved successfully
+            return pstm.executeUpdate() > 0;
         }
     }
 
@@ -184,7 +184,7 @@ public class BorrowDaoImpl implements BorrowDao {
                 );
             }
         }
-        return null; // No borrow record found
+        return null;
     }
 
     @Override
@@ -194,7 +194,7 @@ public class BorrowDaoImpl implements BorrowDao {
         try (PreparedStatement pstm = connection.prepareStatement(sql)) {
             pstm.setDate(1, Date.valueOf(today));
             pstm.setString(2, selectedBookId);
-            return pstm.executeUpdate() > 0; // Return true if the update is successful
+            return pstm.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

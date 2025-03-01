@@ -104,17 +104,14 @@ public class ReturnBookFormController implements Initializable {
     }
 
     public void btnPayNowOnAction(ActionEvent actionEvent) {
-        // Step 1: Check if a book is selected in the ComboBox
         if (selectBookComboTxt.getSelectionModel().isEmpty()) {
             new Alert(Alert.AlertType.WARNING, "Please select a book to return!").show();
             return;
         }
 
-        // Step 2: Get the selected book ID from the ComboBox
         String selectedBookId = (String) selectBookComboTxt.getSelectionModel().getSelectedItem();
 
         try {
-            // Step 3: Fetch the borrow record for the selected book
             BorrowBooks borrowRecord = borrowService.getBorrowRecordByBookId(selectedBookId);
 
             if (borrowRecord == null) {
@@ -122,7 +119,6 @@ public class ReturnBookFormController implements Initializable {
                 return;
             }
 
-            // Step 4: Calculate fine if applicable
             LocalDate returnDate = borrowRecord.getReturnDate();
             LocalDate today = LocalDate.now();
             double fineAmount = 0;
@@ -132,7 +128,6 @@ public class ReturnBookFormController implements Initializable {
                 fineAmount = overdueDays * 10;
             }
 
-            // Step 5: Return the book and pay the fine (if applicable)
             boolean isReturned = borrowService.returnBookWithFine(selectedBookId, today, fineAmount);
 
             if (isReturned) {

@@ -60,7 +60,7 @@
                      <font>
                         <Font name="Bauhaus 93" size="15.0" />
                      </font></Label>
-                  <Label alignment="CENTER" layoutX="-2.0" layoutY="14.0" prefHeight="50.0" prefWidth="714.0" text="Book Management" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="-2.0" layoutY="14.0" prefHeight="54.0" prefWidth="714.0" text="Book Management" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB Bold" size="40.0" />
                      </font>

@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Setter
 @Data
 public class Member {
-    private String id;
+    private String memberid;
     private String name;
     private String contact;
     private LocalDate date;

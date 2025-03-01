@@ -29,7 +29,7 @@ public class MemberDaoImpl implements MemberDao {
             preparedStatement.setDate(4, Date.valueOf(entity.getDate()));
 
             int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0; // Return true if at least one row was affected
+            return rowsAffected > 0;
         }
     }
 

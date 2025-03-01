@@ -44,7 +44,7 @@ public class FogotDaoImpl implements FogotDao {
         try (Connection connection = DBConnection.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
 
-            statement.setString(1, email); // Fix: Changed index from 2 to 1
+            statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
@@ -65,7 +65,6 @@ public class FogotDaoImpl implements FogotDao {
     public UserEntity updatePassword(String email, String newPassword) {
         System.out.println("alwis");
 
-        // First, check if the email exists in the database
         String checkEmailQuery = "SELECT * FROM users WHERE email = ?";
         try (Connection connection = DBConnection.getInstance().getConnection();
              PreparedStatement checkEmailStatement = connection.prepareStatement(checkEmailQuery)) {
@@ -74,11 +73,9 @@ public class FogotDaoImpl implements FogotDao {
             ResultSet resultSet = checkEmailStatement.executeQuery();
 
             if (!resultSet.next()) {
-                // Email not found, return null
                 return null;
             }
 
-            // If email exists, proceed to update the password
             String updatePasswordQuery = "UPDATE users SET password = ? WHERE email = ?";
             try (PreparedStatement updatePasswordStatement = connection.prepareStatement(updatePasswordQuery)) {
                 updatePasswordStatement.setString(1, newPassword);
@@ -86,7 +83,6 @@ public class FogotDaoImpl implements FogotDao {
 
                 int rowsUpdated = updatePasswordStatement.executeUpdate();
                 if (rowsUpdated > 0) {
-                    // Fetch updated user details after password update
                     String selectQuery = "SELECT * FROM users WHERE email = ?";
                     try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
                         selectStatement.setString(1, email);

@@ -150,7 +150,23 @@ public class BookDaoImpl implements BookDao {
             pstm.setString(1, borrowed);
             pstm.setString(2, bookId);
 
-            return pstm.executeUpdate() > 0; // Return true if the update is successful
+            return pstm.executeUpdate() > 0;
         }
     }
+
+    @Override
+    public Integer getCategoryIdByName(String categoryName) throws SQLException {
+        String query = "SELECT CategoryId FROM category WHERE CategoryName = ?";
+        try (Connection connection = DBConnection.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, categoryName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("CategoryId");
+            }
+        }
+        return null;
+    }
+
 }

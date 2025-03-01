@@ -17,37 +17,45 @@
       <HBox prefHeight="550.0" prefWidth="750.0" spacing="0">
          <children>
             <!-- Left Side: Auto-Sliding Image Gallery -->
-            <StackPane prefWidth="400.0">
+            <StackPane prefHeight="551.0" prefWidth="387.0">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="550.0" fitWidth="400.0" preserveRatio="false">
+                  <ImageView fitHeight="551.0" fitWidth="386.0">
                      <image>
-                        <Image url="@../images/library%20login.jpg" />
-                     </image></ImageView>
+                        <Image url="@../images/5.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </StackPane>
 
             <!-- Right Side: Login Form -->
-            <VBox alignment="CENTER" prefWidth="350.0" spacing="15.0" style="-fx-background-color: #f4f8ff; -fx-padding: 40px; -fx-border-radius: 10px;">
+            <VBox alignment="CENTER" prefHeight="551.0" prefWidth="370.0" spacing="15.0" style="-fx-background-color: #2c2c54; -fx-padding: 40px; -fx-border-radius: 10px;">
                <children>
-                  <Label text="BookLib.PVT">
+                  <Label prefHeight="42.0" prefWidth="293.0" text="BookLib(Pvt)Ltd" textFill="#dcd2d2">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="Britannic Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="30.0" prefWidth="230.0" text="Welcome To Library" textFill="#d48383">
+                     <font>
+                        <Font name="Candara Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="156.0" text="Login to your account" textFill="#ece7e7">
+                     <font>
+                        <Font size="15.0" />
                      </font>
                   </Label>
 
-                  <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Welcome!!">
+                  <JFXTextField fx:id="emailTxtField" focusColor="#99a8d7" promptText="Email" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" unFocusColor="#cf8989" />
+                  <JFXPasswordField fx:id="passwordTxtField" promptText="Password" style="-fx-pref-width: 282px; -fx-background-radius: 5px;" unFocusColor="#c96b6b" />
+
+                  <JFXButton onAction="#btnLoginOnAction" style="-fx-background-color: #ff793f; -fx-text-fill: white; -fx-pref-width: 280px; -fx-font-size: 15px; -fx-padding: 10px; -fx-border-radius: 5px;" text="Login" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <Label style="-fx-font-size: 13px; -fx-text-fill: #666;" text="Login to your account" />
+                        <Font size="15.0" />
+                     </font></JFXButton>
 
-                  <JFXTextField fx:id="emailTxtField" promptText="Email" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" />
-                  <JFXPasswordField fx:id="passwordTxtField" promptText="Password" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" />
-
-                  <JFXButton onAction="#btnLoginOnAction" style="-fx-background-color: #e55039; -fx-text-fill: white; -fx-pref-width: 280px; -fx-font-size: 14px; -fx-padding: 10px; -fx-border-radius: 5px;" text="Login" />
-
-                  <Label onMouseClicked="#fogotPasswordBtnOnAction" style="-fx-text-fill: #0056b3; -fx-font-size: 12px; -fx-cursor: hand;" text="Forgot your password?" />
-                  <JFXButton onAction="#btnSignUpOnAction" style="-fx-text-fill: #0056b3; -fx-font-size: 14px;" text="Create an account" />
+                  <Label onMouseClicked="#fogotPasswordBtnOnAction" style="-fx-text-fill: #0056b3; -fx-font-size: 15px; -fx-cursor: hand;" text="Forgot your password?" />
+                  <JFXButton onAction="#btnSignUpOnAction" style="-fx-text-fill: #0056b3; -fx-font-size: 15px;" text="Create an account" />
                </children>
             </VBox>
          </children>

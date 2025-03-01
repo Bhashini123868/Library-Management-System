@@ -80,7 +80,7 @@ public class LoginFormController implements Initializable {
 
     public void fogotPasswordBtnOnAction(MouseEvent actionEvent) throws MessagingException, IOException {
 
-        String email = emailTxtField.getText().trim(); // Trim to remove spaces
+        String email = emailTxtField.getText().trim();
 
         if (email.isEmpty()) {
             new Alert(Alert.AlertType.INFORMATION, "Please Fill The Email Field!").show();
@@ -152,7 +152,6 @@ public class LoginFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Load images (Set the correct paths)
 
     }
 

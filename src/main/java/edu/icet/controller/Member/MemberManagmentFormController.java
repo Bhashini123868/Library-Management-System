@@ -43,14 +43,12 @@ public class MemberManagmentFormController implements Initializable {
 
     public void addaCustomerOnAction(ActionEvent actionEvent) throws SQLException {
         try {
-            // Create a MemberDTO object from the form inputs
             String name = txtNameField.getText();
             String contact = txtContactField.getText();
             LocalDate date = txtMembershipDateField.getValue();
 
             Member member = new Member(null, name, contact, date);
 
-            // Call the service layer to add the member
             boolean isAdded = memberService.addMember(member);
             if(isAdded){
                 new Alert(Alert.AlertType.INFORMATION, "Member Addded Scusess !").show();
@@ -63,7 +61,6 @@ public class MemberManagmentFormController implements Initializable {
             loadTheId();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Show an error message to the user
         }
     }
 
@@ -112,7 +109,6 @@ public class MemberManagmentFormController implements Initializable {
 
     public void updateCustomerOnAction(ActionEvent actionEvent) {
         try {
-            // Get the updated member details from the form fields
             String memberId = txtIdField.getText().trim();
             String name = txtNameField.getText();
             String contact = txtContactField.getText();
@@ -145,7 +141,6 @@ public class MemberManagmentFormController implements Initializable {
 
     public void searchCustomerOnAction(ActionEvent actionEvent) {
         try {
-            // Get the member ID from the search field
             String memberId = txtIdField.getText().trim();
 
             if (memberId.isEmpty()) {
@@ -156,7 +151,7 @@ public class MemberManagmentFormController implements Initializable {
             Member member = memberService.searchMemberById(memberId);
 
             if (member != null) {
-                txtIdField.setText(member.getId());
+                txtIdField.setText(member.getMemberid());
                 txtNameField.setText(member.getName());
                 txtContactField.setText(member.getContact());
                 txtMembershipDateField.setValue(member.getDate());
@@ -173,12 +168,11 @@ public class MemberManagmentFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cusIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cusIdCol.setCellValueFactory(new PropertyValueFactory<>("memberid"));
         cusNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         cusContactCol.setCellValueFactory(new PropertyValueFactory<>("contact"));
         cusMembershipDateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-        // Load all members into the table
         refreshTable();
         try {
             loadTheId();

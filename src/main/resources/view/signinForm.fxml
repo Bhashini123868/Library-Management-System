@@ -15,36 +15,42 @@
       <HBox prefHeight="550.0" prefWidth="750.0" spacing="0">
          <children>
             <!-- Left Side: Background Image -->
-            <AnchorPane prefWidth="400.0" style="-fx-background-size: cover; -fx-background-position: center;">
+            <AnchorPane prefHeight="554.0" prefWidth="340.0" style="-fx-background-size: cover; -fx-background-position: center;">
                <children>
-                  <ImageView fitHeight="557.0" fitWidth="400.0" layoutY="-3.0" pickOnBounds="true">
+                  <ImageView fitHeight="554.0" fitWidth="342.0" layoutX="-2.0" layoutY="-1.0">
                      <image>
-                        <Image url="@../images/signup%20(2).jpg" />
+                        <Image url="@../images/3.jpg" />
                      </image>
                   </ImageView>
                </children></AnchorPane>
 
             <!-- Right Side: Sign-Up Form -->
-            <VBox alignment="CENTER" prefWidth="350.0" spacing="15.0" style="-fx-background-color: #f4f8ff; -fx-padding: 40px; -fx-border-radius: 10px;">
+            <VBox alignment="CENTER" prefHeight="554.0" prefWidth="413.0" spacing="15.0" style="-fx-background-color: #2c2c54; -fx-padding: 40px; -fx-border-radius: 10px;">
                <children>
-                  <Label text="BookLib.PVT">
+                  <Label prefHeight="42.0" prefWidth="303.0" text="BookLib(Pvt)Ltd" textFill="#dcd2d2">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="Britannic Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="30.0" prefWidth="250.0" text="Create a New Account" textFill="#d48383">
+                     <font>
+                        <Font name="Candara Bold" size="25.0" />
                      </font>
                   </Label>
 
-                  <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Create a New Account" />
-
                   <!-- Form Fields -->
-                  <Label fx:id="txtUserID" style="-fx-font-size: 14px;" text="User ID - L000#" />
-                  <JFXTextField fx:id="userNameTxtField" promptText="User Name" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" />
-                  <JFXTextField fx:id="gmailTxtField" promptText="Gmail" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" />
-                  <JFXTextField fx:id="passwordTxtField" promptText="Password" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" />
+                  <Label fx:id="txtUserID" style="-fx-font-size: 14px;" text="User ID - L000#" textFill="#f4f0f0" />
+                  <JFXTextField fx:id="userNameTxtField" focusColor="#081f66" promptText="User Name" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" unFocusColor="#6e1010" />
+                  <JFXTextField fx:id="gmailTxtField" promptText="Gmail" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" unFocusColor="#6e1212" />
+                  <JFXTextField fx:id="passwordTxtField" promptText="Password" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" unFocusColor="#5b1111" />
 
                   <JFXButton onAction="#btnSingUpOnAction" style="-fx-background-color: #e55039; -fx-text-fill: white; -fx-pref-width: 280px; -fx-font-size: 14px; -fx-padding: 10px; -fx-border-radius: 5px;" text="Sign Up" />
 
-                  <Label style="-fx-text-fill: #666; -fx-font-size: 12px;" text="Already have an account?" />
-                  <JFXButton onAction="#btnLoginUpOnAction" style="-fx-text-fill: #800040; -fx-font-size: 14px;" text="Login" />
+                  <Label style="-fx-text-fill: #666; -fx-font-size: 12px;" text="Already have an account?" textFill="#e7dede" />
+                  <JFXButton onAction="#btnLoginUpOnAction" style="-fx-text-fill: #800040; -fx-font-size: 14px;" text="Login" textFill="#faf8f8">
+                     <font>
+                        <Font size="15.0" />
+                     </font></JFXButton>
                </children>
             </VBox>
          </children>

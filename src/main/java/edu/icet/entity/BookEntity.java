@@ -12,9 +12,9 @@ import lombok.*;
 @Entity
 public class BookEntity {
     private String bookId;
-    private String isbn;
     private String bookTitle;
-    private String author;
-    private Integer categoryId;
+    private String isbn;
     private String availability;
+    private Integer categoryId;
+    private String author;
 }

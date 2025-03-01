@@ -2,13 +2,16 @@ package edu.icet.service.custom;
 
 import edu.icet.dto.Book;
 import edu.icet.service.SuperService;
+import edu.icet.util.Category;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public interface BookService extends SuperService {
-    ArrayList<String> getAllCategoryIds() throws SQLException;
+    List<String> getAllCategoryIds() throws SQLException;
+
+    Integer getCategoryIdByName(String categoryName) throws SQLException;
 
     boolean addBook(Book book) throws SQLException;
 
@@ -21,4 +24,6 @@ public interface BookService extends SuperService {
     boolean updateBook(Book book) throws SQLException;
 
     Book searchBookById(String bookId) throws SQLException;
+
+    List<Category> getAllCategories() throws SQLException;
 }

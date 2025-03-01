@@ -61,7 +61,7 @@ public class BorrowServiceImpl implements BorrowService {
         Connection connection = null;
         try {
             connection = DBConnection.getInstance().getConnection();
-            connection.setAutoCommit(false); // Start transaction
+            connection.setAutoCommit(false);
 
             String borrowId = generateNextBorrowId();
 
@@ -71,30 +71,29 @@ public class BorrowServiceImpl implements BorrowService {
                     bookId,
                     borrowDate,
                     returnDate,
-                    null, // DateGiven is null
-                    false // isReturned is false by default
+                    null,
+                    false
             );
             boolean isBorrowRecordSaved = borrowDao.saveTheRecord(borrowRecord, connection);
 
-            // Step 3: Update the book's availability status to 'Borrowed'
             boolean isBookAvailabilityUpdated = bookDao.updateAvailabilityStatus(bookId, "Borrowed", connection);
 
             if (isBorrowRecordSaved && isBookAvailabilityUpdated) {
-                connection.commit(); // Commit transaction
+                connection.commit();
                 return true;
             } else {
-                connection.rollback(); // Rollback transaction
+                connection.rollback();
                 return false;
             }
         } catch (SQLException e) {
             if (connection != null) {
-                connection.rollback(); // Rollback transaction on error
+                connection.rollback();
             }
             throw e;
         } finally {
             if (connection != null) {
-                connection.setAutoCommit(true); // Reset auto-commit
-                connection.close(); // Close connection
+                connection.setAutoCommit(true);
+                connection.close();
             }
         }
     }
@@ -145,26 +144,22 @@ public class BorrowServiceImpl implements BorrowService {
         Connection connection = null;
         try {
             connection = DBConnection.getInstance().getConnection();
-            connection.setAutoCommit(false); // Start transaction
+            connection.setAutoCommit(false);
 
-            // Step 1: Get the BorrowID for the selected book
             String borrowId = borrowDao.getBorrowIdByBookId(selectedBookId, connection);
 
             if (borrowId == null) {
                 throw new SQLException("No borrow record found for the selected book!");
             }
 
-            // Step 2: Update borrow record as returned
             boolean isBorrowUpdated = borrowDao.updateBorrowRecordAsReturned(selectedBookId, today, connection);
 
-            // Step 3: Update book availability status to "Available"
             boolean isBookUpdated = bookDao.updateAvailabilityStatus(selectedBookId, "Available", connection);
 
-            // Step 4: Save fine record if applicable
             boolean isFineSaved = true;
             if (fineAmount > 0) {
                 FineEntity fine = new FineEntity();
-                fine.setBorrowId(borrowId); // Use the fetched BorrowID
+                fine.setBorrowId(borrowId);
                 fine.setFineAmount(BigDecimal.valueOf(fineAmount));
                 fine.setPaymentDate(LocalDate.now());
                 isFineSaved = borrowDao.saveFine(fine, connection);
