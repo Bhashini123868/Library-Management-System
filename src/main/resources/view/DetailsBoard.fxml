@@ -61,7 +61,7 @@
       <Label layoutX="269.0" layoutY="302.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="Not Returned Books :" />
       <Label fx:id="unpaidFineTxt" layoutX="269.0" layoutY="330.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="000000.00" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#611a20" height="86.0" stroke="BLACK" strokeType="INSIDE" width="701.0" />
-      <Label layoutX="169.0" layoutY="10.0" prefHeight="54.0" prefWidth="311.0" text="Booklib.pvt/ltd" textFill="#fff9f9">
+      <Label layoutX="169.0" layoutY="10.0" prefHeight="54.0" prefWidth="311.0" text="BookLib(Pvt)Ltd" textFill="#fff9f9">
          <font>
             <Font name="Book Antiqua Bold" size="40.0" />
          </font>
@@ -71,9 +71,14 @@
             <Image url="@../images/userMng.jpg" />
          </image>
       </ImageView>
-      <ImageView layoutX="528.0" layoutY="14.0">
+      <ImageView layoutX="496.0" layoutY="19.0">
          <image>
             <Image url="@../images/availble.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="86.0" fitWidth="82.0" layoutX="583.0" layoutY="290.0">
+         <image>
+            <Image url="@../images/b1.jpg" />
          </image>
       </ImageView>
     </children>

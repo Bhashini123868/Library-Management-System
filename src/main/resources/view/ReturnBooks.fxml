@@ -66,6 +66,11 @@
                         </Label>
                         <Button layoutX="410.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnPayNowOnAction" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: green; -fx-text-fill: white; -fx-font-size: 14;" text="Pay Now" />
                         <JFXTextField fx:id="fineTxtField" layoutX="402.0" layoutY="265.0" prefHeight="26.0" prefWidth="160.0" />
+                        <ImageView layoutX="458.0" layoutY="-16.0">
+                           <image>
+                              <Image url="@../images/availble.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </children>

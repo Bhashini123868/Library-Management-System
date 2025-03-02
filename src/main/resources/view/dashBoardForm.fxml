@@ -16,17 +16,11 @@
 
     <children>
         <!-- Left Navigation Panel -->
-        <Pane prefHeight="686.0" prefWidth="260.0" style="-fx-background-color: #cf6a87;" styleClass="sidebar">
+        <Pane layoutX="-9.0" prefHeight="686.0" prefWidth="270.0" style="-fx-background-color: #cf6a87;" styleClass="sidebar">
             <children>
-                <!-- Logo Section -->
-                <ImageView fitHeight="64.0" fitWidth="72.0" layoutX="22.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/bookshelf.png" />
-               </image>
-                </ImageView>
 
                 <!-- Navigation Buttons -->
-                <JFXButton layoutX="31.0" layoutY="120.0" onAction="#btnDashBoardOnAction" styleClass="nav-btn" text="Dashboard">
+                <JFXButton alignment="CENTER" layoutX="35.0" layoutY="130.0" onAction="#btnDashBoardOnAction" style="-fx-background-color: #ea8685;" styleClass="nav-btn" text="DashBoard">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
                             <image>
@@ -35,10 +29,10 @@
                         </ImageView>
                     </graphic>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="Franklin Gothic Medium Cond" size="18.0" />
                </font>
                 </JFXButton>
-                <JFXButton layoutX="31.0" layoutY="180.0" onAction="#btnMemberManagmentOnAction" styleClass="nav-btn" text="Members Management">
+                <JFXButton layoutX="31.0" layoutY="180.0" onAction="#btnMemberManagmentOnAction" style="-fx-background-color: #ea8685;" styleClass="nav-btn" text="Members Management">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
                             <image>
@@ -46,8 +40,11 @@
                             </image>
                         </ImageView>
                     </graphic>
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
                 </JFXButton>
-                <JFXButton layoutX="31.0" layoutY="240.0" onAction="#btnBookManagmentOnAction" styleClass="nav-btn" text="Books Management">
+                <JFXButton layoutX="31.0" layoutY="240.0" onAction="#btnBookManagmentOnAction" style="-fx-background-color: #ea8685;" styleClass="nav-btn" text="Books Management">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
                             <image>
@@ -55,8 +52,11 @@
                             </image>
                         </ImageView>
                     </graphic>
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
                 </JFXButton>
-                <JFXButton layoutX="31.0" layoutY="300.0" onAction="#btnBorrowOnAction" styleClass="nav-btn" text="Borrow Books">
+                <JFXButton layoutX="31.0" layoutY="300.0" onAction="#btnBorrowOnAction" style="-fx-background-color: #ea8685;" styleClass="nav-btn" text="Borrow Books">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
                             <image>
@@ -64,8 +64,11 @@
                             </image>
                         </ImageView>
                     </graphic>
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
                 </JFXButton>
-                <JFXButton layoutX="31.0" layoutY="360.0" onAction="#btnReturnOnAction" styleClass="nav-btn" text="Return Books">
+                <JFXButton layoutX="31.0" layoutY="360.0" onAction="#btnReturnOnAction" style="-fx-background-color: #ea8685;" styleClass="nav-btn" text="Return Books">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
                             <image>
@@ -73,8 +76,11 @@
                             </image>
                         </ImageView>
                     </graphic>
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
                 </JFXButton>
-                <JFXButton layoutX="31.0" layoutY="420.0" onAction="#btnReportsOnAction" styleClass="nav-btn" text="Reports">
+                <JFXButton layoutX="31.0" layoutY="420.0" onAction="#btnReportsOnAction" style="-fx-background-color: #ea8685;" styleClass="nav-btn" text="Reports">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
                             <image>
@@ -82,25 +88,41 @@
                             </image>
                         </ImageView>
                     </graphic>
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
                 </JFXButton>
 
                 <!-- Logout Section -->
-                <Label fx:id="logOutTxt" layoutX="107.0" layoutY="647.0" onMouseClicked="#logoutTxtOnAction" styleClass="logout-btn" text="Log Out" />
-                <ImageView fitHeight="64.0" fitWidth="100.0" layoutX="101.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
+                <Label fx:id="logOutTxt" alignment="CENTER" layoutX="47.0" layoutY="639.0" onMouseClicked="#logoutTxtOnAction" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: #d63031;" styleClass="logout-btn" text="LOG OUT" textFill="#fff8f8">
+               <font>
+                  <Font name="Britannic Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="26.0" layoutY="586.0" prefHeight="40.0" prefWidth="208.0" text="BookLib(Pvt)Ltd" textFill="#690f52">
+               <font>
+                  <Font name="Bell MT Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="11.0" layoutY="80.0" prefHeight="40.0" prefWidth="246.0" style="-fx-background-color: #f78fb3;" text="Library Management" textFill="#a10126">
+               <font>
+                  <Font name="Franklin Gothic Heavy" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="72.0" fitWidth="92.0" layoutX="67.0" layoutY="8.0">
                <image>
-                  <Image url="@../images/icons8-logout-64.png" />
+                  <Image url="@../images/list.png" />
                </image>
-                </ImageView>
-            <Label layoutX="74.0" layoutY="15.0" prefHeight="40.0" prefWidth="146.0" text="Booklib.pvt.ltd">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="33.0" layoutY="55.0" prefHeight="40.0" prefWidth="191.0" text="Library Management">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="20.0" layoutX="57.0" layoutY="642.0">
+               <image>
+                  <Image url="@../images/login.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="76.0" layoutY="473.0">
+               <image>
+                  <Image url="@../images/bookRead.png" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
 

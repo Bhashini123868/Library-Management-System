@@ -25,31 +25,31 @@
                </children></AnchorPane>
 
             <!-- Right Side: Sign-Up Form -->
-            <VBox alignment="CENTER" prefHeight="554.0" prefWidth="413.0" spacing="15.0" style="-fx-background-color: #2c2c54; -fx-padding: 40px; -fx-border-radius: 10px;">
+            <VBox alignment="CENTER" prefHeight="554.0" prefWidth="413.0" spacing="15.0" style="-fx-background-color: #fab1a0; -fx-padding: 40px; -fx-border-radius: 10px;">
                <children>
-                  <Label prefHeight="42.0" prefWidth="303.0" text="BookLib(Pvt)Ltd" textFill="#dcd2d2">
+                  <Label prefHeight="42.0" prefWidth="303.0" text="BookLib(Pvt)Ltd" textFill="#510606">
                      <font>
                         <Font name="Britannic Bold" size="40.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="30.0" prefWidth="250.0" text="Create a New Account" textFill="#d48383">
+                  <Label prefHeight="30.0" prefWidth="250.0" text="Create a New Account" textFill="#660d0d">
                      <font>
                         <Font name="Candara Bold" size="25.0" />
                      </font>
                   </Label>
 
                   <!-- Form Fields -->
-                  <Label fx:id="txtUserID" style="-fx-font-size: 14px;" text="User ID - L000#" textFill="#f4f0f0" />
+                  <Label fx:id="txtUserID" style="-fx-font-size: 14px;" text="User ID - L000#" textFill="#560a0a" />
                   <JFXTextField fx:id="userNameTxtField" focusColor="#081f66" promptText="User Name" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" unFocusColor="#6e1010" />
                   <JFXTextField fx:id="gmailTxtField" promptText="Gmail" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" unFocusColor="#6e1212" />
                   <JFXTextField fx:id="passwordTxtField" promptText="Password" style="-fx-pref-width: 280px; -fx-background-radius: 5px;" unFocusColor="#5b1111" />
 
                   <JFXButton onAction="#btnSingUpOnAction" style="-fx-background-color: #e55039; -fx-text-fill: white; -fx-pref-width: 280px; -fx-font-size: 14px; -fx-padding: 10px; -fx-border-radius: 5px;" text="Sign Up" />
 
-                  <Label style="-fx-text-fill: #666; -fx-font-size: 12px;" text="Already have an account?" textFill="#e7dede" />
-                  <JFXButton onAction="#btnLoginUpOnAction" style="-fx-text-fill: #800040; -fx-font-size: 14px;" text="Login" textFill="#faf8f8">
+                  <Label style="-fx-text-fill: #666; -fx-font-size: 12px;" text="Already have an account?" textFill="#612424" />
+                  <JFXButton onAction="#btnLoginUpOnAction" style="-fx-text-fill: #800040; -fx-font-size: 14px;" text="Login" textFill="#400505">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></JFXButton>
                </children>
             </VBox>

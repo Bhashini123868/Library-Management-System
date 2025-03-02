@@ -38,7 +38,10 @@
                      <font>
                         <Font name="Bauhaus 93" size="15.0" />
                      </font></Label>
-                  <Button layoutX="587.0" layoutY="635.0" mnemonicParsing="false" onAction="#loadTBLOnAction" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #e55039; -fx-text-fill: white; -fx-font-size: 14;" text="Load Tabel" />
+                  <Button layoutX="539.0" layoutY="635.0" mnemonicParsing="false" onAction="#loadTBLOnAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #2d3436; -fx-text-fill: white; -fx-font-size: 14;" text="Load Tabel">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
                   <TableView fx:id="tblBook" layoutX="14.0" layoutY="367.0" prefHeight="253.0" prefWidth="683.0" style="-fx-background-color: white; -fx-border-color: #DADADA;">
                      <columns>
                         <TableColumn fx:id="bookIdCol" prefWidth="75.20004081726074" text="BookId" />
@@ -62,7 +65,7 @@
                      </font></Label>
                   <Label alignment="CENTER" layoutX="-2.0" layoutY="14.0" prefHeight="54.0" prefWidth="714.0" text="Book Management" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="Berlin Sans FB Bold" size="40.0" />
+                        <Font name="Britannic Bold" size="45.0" />
                      </font>
                   </Label>
                   <TextField fx:id="txtIdField" layoutX="173.0" layoutY="123.0" promptText="Book ID" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
@@ -78,6 +81,11 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtIsbnField" layoutX="511.0" layoutY="123.0" promptText="Book ISBN" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+                  <ImageView fitHeight="54.0" fitWidth="77.0" layoutX="561.0" layoutY="14.0">
+                     <image>
+                        <Image url="@../images/book.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>

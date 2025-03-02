@@ -58,9 +58,9 @@
                   <JFXTextField fx:id="memberNameTxtField" layoutX="205.0" layoutY="181.0" prefHeight="26.0" prefWidth="160.0" />
                   <JFXTextField fx:id="memberIdTxtxField" layoutX="204.0" layoutY="119.0" prefHeight="26.0" prefWidth="160.0" />
                   <Button layoutX="396.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnMemberSearchOnAction" prefHeight="30.0" prefWidth="230.0" style="-fx-background-color: #e15f41; -fx-text-fill: white; -fx-font-size: 14;" text="Search" />
-                  <Label layoutX="252.0" layoutY="-1.0" text="Borrow Book" textFill="WHITE">
+                  <Label layoutX="222.0" text="Borrow Book" textFill="WHITE">
                      <font>
-                        <Font name="Segoe UI Bold" size="36.0" />
+                        <Font name="Berlin Sans FB Demi Bold" size="45.0" />
                      </font>
                   </Label>
                   <DatePicker fx:id="returnDatePickerTxtField" layoutX="452.0" layoutY="433.0" prefHeight="30.0" prefWidth="230.0" />
@@ -74,6 +74,11 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="54.0" fitWidth="62.0" layoutX="509.0">
+                     <image>
+                        <Image url="@../images/fine.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>

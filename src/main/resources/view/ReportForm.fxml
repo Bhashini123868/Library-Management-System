@@ -37,5 +37,30 @@
             <Image url="@../images/fine.png" />
          </image>
       </ImageView>
+      <ImageView layoutX="546.0" layoutY="39.0">
+         <image>
+            <Image url="@../images/user-icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="36.0" layoutX="135.0" layoutY="208.0">
+         <image>
+            <Image url="@../images/signin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="36.0" layoutX="369.0" layoutY="294.0">
+         <image>
+            <Image url="@../images/signin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="36.0" layoutX="135.0" layoutY="292.0">
+         <image>
+            <Image url="@../images/signin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="36.0" layoutX="369.0" layoutY="208.0">
+         <image>
+            <Image url="@../images/signin.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
