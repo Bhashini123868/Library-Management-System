@@ -52,7 +52,7 @@ public class SignUpFromController implements Initializable{
                 Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 currentStage.close();
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/loginForm.fxml"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene(fxmlLoader.load()));
                 stage.show();
@@ -79,7 +79,7 @@ public class SignUpFromController implements Initializable{
     }
 
     public void getUserID() throws SQLException {
-        String userId = signUpService.genarateuserID();  // Corrected method name here
+        String userId = signUpService.genarateuserID();
         txtUserID.setText(userId);
     }
 
