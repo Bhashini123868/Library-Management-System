@@ -15,11 +15,9 @@
     </stylesheets>
 
     <children>
-        <!-- Left Navigation Panel -->
         <Pane layoutX="-9.0" prefHeight="686.0" prefWidth="270.0" style="-fx-background-color: #cf6a87;" styleClass="sidebar">
             <children>
 
-                <!-- Navigation Buttons -->
                 <JFXButton alignment="CENTER" layoutX="33.0" layoutY="169.0" onAction="#btnDashBoardOnAction" style="-fx-background-color: #ea8685;" styleClass="nav-btn" text="DashBoard">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
@@ -93,7 +91,6 @@
                </font>
                 </JFXButton>
 
-                <!-- Logout Section -->
                 <Label fx:id="logOutTxt" alignment="CENTER" layoutX="47.0" layoutY="639.0" onMouseClicked="#logoutTxtOnAction" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: #d63031;" styleClass="logout-btn" text="LOG OUT" textFill="#fff8f8">
                <font>
                   <Font name="Britannic Bold" size="20.0" />
@@ -126,9 +123,7 @@
             </children>
         </Pane>
 
-        <!-- Main Content Area -->
         <AnchorPane fx:id="dashboardAnchorPaneId" layoutX="262.0" prefHeight="686.0" prefWidth="701.0" styleClass="main-content">
-            <!-- Add your dashboard cards here -->
             <children>
             <ImageView fitHeight="686.0" fitWidth="703.0">
                <image>
