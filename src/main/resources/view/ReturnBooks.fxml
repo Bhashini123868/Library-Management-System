@@ -20,7 +20,7 @@
                <children>
                   <AnchorPane layoutX="-21.0" layoutY="10.0" prefHeight="686.0" prefWidth="701.0" style="-fx-background-color: #f8c291;">
                      <children>
-                        <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#1a0848" height="77.0" layoutY="-31.0" width="701.0" />
+                        <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#ff7675" height="77.0" layoutY="-31.0" width="701.0" />
                         <Label layoutX="191.0" layoutY="-14.0" prefHeight="54.0" prefWidth="310.0" text="Return Book" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB Bold" size="40.0" />
@@ -31,7 +31,7 @@
                               <Image url="@../images/fineBook.jpg" />
                            </image>
                         </ImageView>
-                        <Button layoutX="409.0" layoutY="113.0" mnemonicParsing="false" onAction="#btnMemberSearchOnAction" prefHeight="30.0" prefWidth="230.0" style="-fx-background-color: #0fbcf9; -fx-text-fill: white; -fx-font-size: 14;" text="Search" />
+                        <Button layoutX="410.0" layoutY="120.0" mnemonicParsing="false" onAction="#btnMemberSearchOnAction" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: #0fbcf9; -fx-text-fill: white; -fx-font-size: 14;" text="Search" />
                         <TableView fx:id="tblBookReturn" layoutX="28.0" layoutY="388.0" prefHeight="255.0" prefWidth="651.0" style="-fx-background-color: white; -fx-border-color: #DADADA;">
                            <columns>
                               <TableColumn fx:id="bookIdCol" prefWidth="143.19995880126953" text="BookId" />
@@ -39,34 +39,34 @@
                               <TableColumn fx:id="returnDateCol" prefWidth="230.39996337890625" text="Return Date" />
                            </columns>
                         </TableView>
-                        <JFXTextField fx:id="memberIdTxtxField" layoutX="217.0" layoutY="110.0" prefHeight="26.0" prefWidth="160.0" />
-                        <JFXTextField fx:id="memberNameTxtField" layoutX="218.0" layoutY="172.0" prefHeight="26.0" prefWidth="160.0" />
-                        <JFXTextField fx:id="memberContactTxtField" layoutX="501.0" layoutY="173.0" prefHeight="26.0" prefWidth="160.0" />
+                        <JFXTextField fx:id="memberIdTxtxField" layoutX="217.0" layoutY="122.0" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #ecf0f1;" />
+                        <JFXTextField fx:id="memberNameTxtField" layoutX="217.0" layoutY="184.0" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #ecf0f1;" />
+                        <JFXTextField fx:id="memberContactTxtField" layoutX="512.0" layoutY="184.0" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #ecf0f1;" />
                         <Button layoutX="231.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnShowFineOnAction" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 14;" text="Show Fine" />
                         <ComboBox fx:id="selectBookComboTxt" layoutX="209.0" layoutY="269.0" onAction="#showFineOnAction" prefWidth="150.0" />
                         <Button layoutX="410.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnPayNowOnAction" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: green; -fx-text-fill: white; -fx-font-size: 14;" text="Pay Now" />
-                        <JFXTextField fx:id="fineTxtField" layoutX="402.0" layoutY="265.0" prefHeight="26.0" prefWidth="160.0" />
+                        <JFXTextField fx:id="fineTxtField" layoutX="401.0" layoutY="268.0" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #ecf0f1;" />
                         <ImageView layoutX="458.0" layoutY="-16.0">
                            <image>
                               <Image url="@../images/availble.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="73.0" layoutY="124.0" prefHeight="18.0" prefWidth="101.0" text="Member Id :">
+                        <Label layoutX="73.0" layoutY="124.0" prefHeight="18.0" prefWidth="101.0" style="-fx-background-color: #ecf0f1;" text="Member Id :">
                            <font>
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="73.0" layoutY="186.0" prefHeight="23.0" prefWidth="138.0" text="Member Name :">
+                        <Label layoutX="73.0" layoutY="186.0" prefHeight="23.0" prefWidth="138.0" style="-fx-background-color: #ecf0f1;" text="Member Name :">
                            <font>
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="73.0" layoutY="270.0" prefHeight="23.0" prefWidth="108.0" text="Select Id :">
+                        <Label layoutX="73.0" layoutY="270.0" prefHeight="23.0" prefWidth="108.0" style="-fx-background-color: #ecf0f1;" text="Select Id :">
                            <font>
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="402.0" layoutY="186.0" prefHeight="23.0" prefWidth="102.0" text="Contact :">
+                        <Label layoutX="402.0" layoutY="186.0" prefHeight="23.0" prefWidth="102.0" style="-fx-background-color: #ecf0f1;" text="Contact :">
                            <font>
                               <Font name="Arial Black" size="15.0" />
                            </font>
