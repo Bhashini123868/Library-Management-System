@@ -2,7 +2,7 @@ package edu.icet.service.custom;
 
 import edu.icet.dto.Book;
 import edu.icet.service.SuperService;
-import edu.icet.util.Category;
+import edu.icet.dto.Category;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -3,7 +3,7 @@ package edu.icet.controller.book;
 import edu.icet.dto.Book;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.BookService;
-import edu.icet.util.Category;
+import edu.icet.dto.Category;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -51,25 +51,25 @@ public class BookManagementFormController implements Initializable {
 
     public void addBookOnAction(ActionEvent actionEvent) {
         try {
-            String isbn = txtIsbnField.getText();
-            String name = txtNameField.getText();
-            String author = txtAutherField2.getText();
-            String available = txtAvalabelStatuesField.getText();
+            String isbn = txtIsbnField.getText().trim();
+            String name = txtNameField.getText().trim();
+            String author = txtAutherField2.getText().trim();
+            String available = txtAvalabelStatuesField.getText().trim();
 
             if (txtCatogoryField.getValue() == null) {
                 new Alert(Alert.AlertType.WARNING, "Please select a category!").show();
                 return;
             }
 
-            String categoryName = txtCatogoryField.getValue().toString();
-            Category selectedCategory = Category.getCategoryByName(categoryName); // Enum එකෙන් category ලබා ගැනීම
+            // Category object එක ගන්න
+            Category selectedCategory = (Category) txtCatogoryField.getValue();
 
             if (selectedCategory == null) {
                 new Alert(Alert.AlertType.WARNING, "Invalid category selected!").show();
                 return;
             }
 
-            Integer categoryId = selectedCategory.getId();
+            Integer categoryId = selectedCategory.getCategoryId();
 
             Book book = new Book(null, isbn, name, author, categoryId, available);
 
@@ -111,32 +111,32 @@ public class BookManagementFormController implements Initializable {
             e.printStackTrace();
         }
     }
-
     public void deleteBookOnAction(ActionEvent actionEvent) {
         try {
             String bookId = txtIdField.getText().trim();
-
             if (bookId.isEmpty()) {
-                new Alert(Alert.AlertType.WARNING, "Please enter a member ID to delete.").show();
+                new Alert(Alert.AlertType.WARNING, "Please enter a book ID to delete!").show();
                 return;
             }
 
-            boolean isDeleted = bookService.deleteMember(bookId);
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this book?", ButtonType.YES, ButtonType.NO);
+            confirmationAlert.showAndWait();
 
-            if (isDeleted) {
-                new Alert(Alert.AlertType.INFORMATION, "Book Deleted Successfully!").show();
-            } else {
-                new Alert(Alert.AlertType.INFORMATION, "Book Deletion Failed!").show();
+            if (confirmationAlert.getResult() == ButtonType.YES) {
+                boolean isDeleted = bookService.deleteMember(bookId);
+                if (isDeleted) {
+                    new Alert(Alert.AlertType.INFORMATION, "Book deleted successfully!").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Book deletion failed!").show();
+                }
+                refreshTable();
+                clearForm();
             }
-
-            refreshTable();
-            clearForm();
         } catch (SQLException e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "An error occurred while deleting the member.").show();
+            new Alert(Alert.AlertType.ERROR, "An error occurred while deleting the book!").show();
         }
     }
-
     public void updateBookOnAction(ActionEvent actionEvent) {
 
         try {
@@ -167,9 +167,6 @@ public class BookManagementFormController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An error occurred while updating the book.").show();
         }
-
-
-
     }
 
     public void searchBookOnAction(ActionEvent actionEvent) {
@@ -224,7 +221,7 @@ public class BookManagementFormController implements Initializable {
 
     private void loadCategoryIds() throws SQLException {
         ObservableList<String> categoryIds = FXCollections.observableArrayList();
-        for(String id : bookService.getAllCategoryIds()) {
+        for (String id : bookService.getAllCategoryIds()) {
             categoryIds.add(id);
         }
         txtCatogoryField.setItems(categoryIds);

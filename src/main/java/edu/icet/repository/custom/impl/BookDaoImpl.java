@@ -44,6 +44,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public boolean update(BookEntity entity) throws SQLException {
+
         try (Connection connection = DBConnection.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BOOK_SQL)) {
 

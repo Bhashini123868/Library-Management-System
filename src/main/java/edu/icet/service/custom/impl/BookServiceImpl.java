@@ -5,7 +5,7 @@ import edu.icet.entity.BookEntity;
 import edu.icet.repository.DaoFactory;
 import edu.icet.repository.custom.BookDao;
 import edu.icet.service.custom.BookService;
-import edu.icet.util.Category;
+import edu.icet.dto.Category;
 import edu.icet.util.DaoType;
 
 import java.sql.SQLException;
@@ -38,7 +38,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public boolean addBook(Book book) throws SQLException {
-        Integer categoryId = getCategoryIdByName(String.valueOf(book.getCategoryId()));
+        Integer categoryId = book.getCategoryId();
         if (categoryId == null) {
             System.out.println("Invalid category ID: " + book.getCategoryId());
             return false;
@@ -108,9 +108,11 @@ public class BookServiceImpl implements BookService {
     }
 
     private String generateNextMemberID(String lastMemberID) {
+        if (lastMemberID == null || lastMemberID.isEmpty()){
+            return "B0001";
+        }
         int lastNumber = Integer.parseInt(lastMemberID.substring(1));
-        int nextNumber = lastNumber + 1;
-        return String.format("B%04d", nextNumber);
+        return String.format("B%04d", lastNumber+1);
     }
 
     private BookEntity convertToEntity(Book book) {
