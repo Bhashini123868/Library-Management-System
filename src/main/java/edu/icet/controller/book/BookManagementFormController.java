@@ -61,7 +61,6 @@ public class BookManagementFormController implements Initializable {
                 return;
             }
 
-            // Category object එක ගන්න
             Category selectedCategory = (Category) txtCatogoryField.getValue();
 
             if (selectedCategory == null) {

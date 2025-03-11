@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface BookService extends SuperService {
+public interface  BookService extends SuperService {
     List<String> getAllCategoryIds() throws SQLException;
 
     Integer getCategoryIdByName(String categoryName) throws SQLException;
