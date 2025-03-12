@@ -3,7 +3,6 @@ package edu.icet.controller.book;
 import edu.icet.dto.Book;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.BookService;
-import edu.icet.dto.Category;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,11 +28,9 @@ public class BookManagementFormController implements Initializable {
     public TableColumn bookIdCol;
     public TableColumn BookIsbnCol;
     public TableColumn bookTitleCol;
-    public TableColumn bookCategoryCol;
     public TableColumn bookAvilabiltyCol;
     public TextField txtAutherField2;
     public TextField txtAvalabelStatuesField;
-    public ComboBox txtCatogoryField;
     public TableColumn bookAutherCol;
 
     BookService bookService= ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
@@ -43,12 +40,6 @@ public class BookManagementFormController implements Initializable {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/BorrowedBooks.fxml"))));
         stage.show();
     }
-
-    public void selectCategoryComboOnAction(ActionEvent actionEvent) throws SQLException {
-
-
-    }
-
     public void addBookOnAction(ActionEvent actionEvent) {
         try {
             String isbn = txtIsbnField.getText().trim();
@@ -56,39 +47,21 @@ public class BookManagementFormController implements Initializable {
             String author = txtAutherField2.getText().trim();
             String available = txtAvalabelStatuesField.getText().trim();
 
-            if (txtCatogoryField.getValue() == null) {
-                new Alert(Alert.AlertType.WARNING, "Please select a category!").show();
-                return;
-            }
-
-            Category selectedCategory = (Category) txtCatogoryField.getValue();
-
-            if (selectedCategory == null) {
-                new Alert(Alert.AlertType.WARNING, "Invalid category selected!").show();
-                return;
-            }
-
-            Integer categoryId = selectedCategory.getCategoryId();
-
-            Book book = new Book(null, isbn, name, author, categoryId, available);
+            Book book = new Book(null, isbn, name, author, available);
 
             boolean isAdded = bookService.addBook(book);
             if (isAdded) {
                 new Alert(Alert.AlertType.INFORMATION, "Book Added Successfully!").show();
             } else {
-                new Alert(Alert.AlertType.INFORMATION, "Book Addition Failed!").show();
+                new Alert(Alert.AlertType.ERROR, "Book Addition Failed!").show();
             }
-
             refreshTable();
             clearForm();
             loadTheId();
-        } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.ERROR, "Invalid category ID format!").show();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     private void loadTheId() {
         String s = bookService.showtheId();
@@ -137,13 +110,11 @@ public class BookManagementFormController implements Initializable {
         }
     }
     public void updateBookOnAction(ActionEvent actionEvent) {
-
         try {
             String bookId = txtIdField.getText().trim();
             String isbn = txtIsbnField.getText();
             String title = txtNameField.getText();
             String author = txtAutherField2.getText();
-            Integer categoryId = Integer.parseInt(txtCatogoryField.getValue().toString());
             String availabilityStatus = txtAvalabelStatuesField.getText();
 
             if (bookId.isEmpty() || isbn.isEmpty() || title.isEmpty() || author.isEmpty()) {
@@ -151,7 +122,7 @@ public class BookManagementFormController implements Initializable {
                 return;
             }
 
-            Book book = new Book(bookId, isbn, title, author, categoryId, availabilityStatus);
+            Book book = new Book(bookId, isbn, title, author, availabilityStatus);
             boolean isUpdated = bookService.updateBook(book);
 
             if (isUpdated) {
@@ -167,9 +138,7 @@ public class BookManagementFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "An error occurred while updating the book.").show();
         }
     }
-
     public void searchBookOnAction(ActionEvent actionEvent) {
-
         try {
             String bookId = txtIdField.getText().trim();
 
@@ -185,7 +154,6 @@ public class BookManagementFormController implements Initializable {
                 txtIsbnField.setText(book.getIsbn());
                 txtNameField.setText(book.getBookTitle());
                 txtAutherField2.setText(book.getAuthor());
-                txtCatogoryField.setValue(book.getCategoryId());
                 txtAvalabelStatuesField.setText(book.getAvailability());
             } else {
                 new Alert(Alert.AlertType.INFORMATION, "No book found with ID: " + bookId).show();
@@ -195,9 +163,8 @@ public class BookManagementFormController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An error occurred while searching for the book.").show();
         }
-
-
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -205,25 +172,10 @@ public class BookManagementFormController implements Initializable {
         BookIsbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         bookTitleCol.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
         bookAutherCol.setCellValueFactory(new PropertyValueFactory<>("author"));
-        bookCategoryCol.setCellValueFactory(new PropertyValueFactory<>("categoryId"));
-        bookAvilabiltyCol.setCellValueFactory(new PropertyValueFactory<>("availabilityStatus"));
+        bookAvilabiltyCol.setCellValueFactory(new PropertyValueFactory<>("availability"));
         refreshTable();
 
         txtAvalabelStatuesField.setEditable(false);
-        try {
-            loadCategoryIds();
-            loadTheId();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void loadCategoryIds() throws SQLException {
-        ObservableList<String> categoryIds = FXCollections.observableArrayList();
-        for (String id : bookService.getAllCategoryIds()) {
-            categoryIds.add(id);
-        }
-        txtCatogoryField.setItems(categoryIds);
-        System.out.println("ids");
+        loadTheId();
     }
 }

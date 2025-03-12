@@ -3,7 +3,6 @@ package edu.icet.service.custom.impl;
 import edu.icet.dbconnection.DBConnection;
 import edu.icet.dto.Book;
 import edu.icet.dto.BorrowBooks;
-import edu.icet.dto.Fine;
 import edu.icet.dto.Member;
 import edu.icet.entity.BookEntity;
 import edu.icet.entity.BorrowBooksEntity;
@@ -53,7 +52,7 @@ public class BorrowServiceImpl implements BorrowService {
             return null;
         }
         return new Book(bookEntity.getBookId(), bookEntity.getIsbn(), bookEntity.getBookTitle(),
-                bookEntity.getAuthor(), bookEntity.getCategoryId(), bookEntity.getAvailability());
+                bookEntity.getAuthor(), bookEntity.getAvailability());
     }
 
     @Override

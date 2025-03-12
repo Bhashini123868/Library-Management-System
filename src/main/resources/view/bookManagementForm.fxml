@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -24,7 +23,7 @@
                         <Image url="@../../../../../../JavaFX/LibraryManagementSystem/src/main/resources/images/bookmng.jpg" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="txtAvalabelStatuesField" layoutX="511.0" layoutY="233.0" promptText="Status" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" text="Available" />
+                  <TextField fx:id="txtAvalabelStatuesField" layoutX="236.0" layoutY="233.0" promptText="Status" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" text="Available" />
                   <TextField fx:id="txtAutherField2" layoutX="511.0" layoutY="174.0" promptText="Author" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
                   <Button layoutX="539.0" layoutY="635.0" mnemonicParsing="false" onAction="#loadTBLOnAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #2d3436; -fx-text-fill: white; -fx-font-size: 14;" text="Load Tabel">
                      <font>
@@ -32,12 +31,11 @@
                      </font></Button>
                   <TableView fx:id="tblBook" layoutX="14.0" layoutY="367.0" prefHeight="253.0" prefWidth="683.0" style="-fx-background-color: white; -fx-border-color: #DADADA;">
                      <columns>
-                        <TableColumn fx:id="bookIdCol" prefWidth="75.20004081726074" text="BookId" />
-                        <TableColumn fx:id="BookIsbnCol" prefWidth="101.5999526977539" text="ISBN" />
-                        <TableColumn fx:id="bookTitleCol" prefWidth="115.20001220703125" text="Title" />
-                        <TableColumn fx:id="bookAutherCol" prefWidth="165.60003662109375" text="Author" />
-                        <TableColumn fx:id="bookCategoryCol" minWidth="1.5999755859375" prefWidth="73.59994506835938" text="Category Id" />
-                        <TableColumn fx:id="bookAvilabiltyCol" prefWidth="152.800048828125" text="Availability Status" />
+                        <TableColumn fx:id="bookIdCol" prefWidth="100.80001449584961" text="BookId" />
+                        <TableColumn fx:id="BookIsbnCol" prefWidth="121.59994506835938" text="Title" />
+                        <TableColumn fx:id="bookTitleCol" prefWidth="102.40003967285156" text="ISBN" />
+                        <TableColumn fx:id="bookAutherCol" prefWidth="164.800048828125" text="Availability Status" />
+                        <TableColumn fx:id="bookAvilabiltyCol" prefWidth="192.0" text="Author" />
                      </columns>
                   </TableView>
                   <Button layoutX="268.0" layoutY="304.0" mnemonicParsing="false" onAction="#searchBookOnAction" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-size: 14;" text="Search" />
@@ -52,9 +50,8 @@
                         <Font name="Britannic Bold" size="45.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtIdField" layoutX="154.0" layoutY="123.0" promptText="Book ID" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
-                  <TextField fx:id="txtNameField" layoutX="154.0" layoutY="176.0" promptText="Book Name" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
-                  <ComboBox fx:id="txtCatogoryField" layoutX="154.0" layoutY="239.0" onAction="#selectCategoryComboOnAction" prefWidth="150.0" promptText="CategoryID" />
+                  <TextField fx:id="txtIdField" layoutX="173.0" layoutY="123.0" promptText="Book ID" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+                  <TextField fx:id="txtNameField" layoutX="173.0" layoutY="176.0" promptText="Book Name" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
                   <TextField fx:id="txtIsbnField" layoutX="511.0" layoutY="123.0" promptText="Book ISBN" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
                   <ImageView fitHeight="54.0" fitWidth="77.0" layoutX="561.0" layoutY="14.0">
                      <image>
@@ -71,11 +68,6 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="26.0" layoutY="238.0" prefHeight="27.0" prefWidth="127.0" style="-fx-background-color: #fab1a0;" text="Category Id :">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
                   <Label layoutX="336.0" layoutY="123.0" prefHeight="18.0" prefWidth="77.0" style="-fx-background-color: #fab1a0;" text="ISBN :">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -86,7 +78,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="329.0" layoutY="233.0" prefHeight="27.0" prefWidth="180.0" style="-fx-background-color: #fab1a0;" text="Availability Status :">
+                  <Label layoutX="26.0" layoutY="233.0" prefHeight="27.0" prefWidth="180.0" style="-fx-background-color: #fab1a0;" text="Availability Status :">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

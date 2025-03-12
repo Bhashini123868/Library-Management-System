@@ -5,11 +5,9 @@ import edu.icet.entity.BookEntity;
 import edu.icet.repository.DaoFactory;
 import edu.icet.repository.custom.BookDao;
 import edu.icet.service.custom.BookService;
-import edu.icet.dto.Category;
 import edu.icet.util.DaoType;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,33 +15,16 @@ public class BookServiceImpl implements BookService {
 
     private static BookServiceImpl instance;
 
-    private BookServiceImpl(){}
+    private BookServiceImpl() {}
 
-    public static BookServiceImpl getInstance(){
-        return  instance==null?new BookServiceImpl():instance;
+    public static BookServiceImpl getInstance() {
+        return instance == null ? new BookServiceImpl() : instance;
     }
 
-    BookDao bookDao= DaoFactory.getInstance().getDaoType(DaoType.BOOK);
-
-    @Override
-    public ArrayList<String> getAllCategoryIds() throws SQLException {
-        return bookDao.getAllCategoryIds();
-
-    }
-
-    @Override
-    public Integer getCategoryIdByName(String categoryName) throws SQLException {
-        return bookDao.getCategoryIdByName(categoryName);
-    }
+    BookDao bookDao = DaoFactory.getInstance().getDaoType(DaoType.BOOK);
 
     @Override
     public boolean addBook(Book book) throws SQLException {
-        Integer categoryId = book.getCategoryId();
-        if (categoryId == null) {
-            System.out.println("Invalid category ID: " + book.getCategoryId());
-            return false;
-        }
-
         String lastMemberID = bookDao.getLastBookID();
         String newBookID = generateNextMemberID(lastMemberID);
 
@@ -52,12 +33,10 @@ public class BookServiceImpl implements BookService {
                 book.getIsbn(),
                 book.getBookTitle(),
                 book.getAuthor(),
-                categoryId,
                 book.getAvailability()
         );
 
-        boolean isAdded = bookDao.save(bookEntity);
-        return isAdded;
+        return bookDao.save(bookEntity);
     }
 
     @Override
@@ -71,12 +50,11 @@ public class BookServiceImpl implements BookService {
         return books.stream()
                 .map(book -> new Book(
                         book.getBookId(),
-                        book.getIsbn(),
                         book.getBookTitle(),
-                        book.getAuthor(),
-                        book.getCategoryId(),
-                        book.getAvailability()
-                ))
+                        book.getIsbn(),
+                        book.getAvailability(),
+                        book.getAuthor()
+                        ))
                 .collect(Collectors.toList());
     }
 
@@ -98,32 +76,25 @@ public class BookServiceImpl implements BookService {
             return null;
         }
         return new Book(bookEntity.getBookId(), bookEntity.getIsbn(), bookEntity.getBookTitle(),
-                bookEntity.getAuthor(), bookEntity.getCategoryId(), bookEntity.getAvailability());
-
-    }
-
-    @Override
-    public List<Category> getAllCategories() throws SQLException {
-        return List.of();
+                bookEntity.getAuthor(), bookEntity.getAvailability());
     }
 
     private String generateNextMemberID(String lastMemberID) {
-        if (lastMemberID == null || lastMemberID.isEmpty()){
+        if (lastMemberID == null || lastMemberID.isEmpty()) {
             return "B0001";
         }
         int lastNumber = Integer.parseInt(lastMemberID.substring(1));
-        return String.format("B%04d", lastNumber+1);
+        return String.format("B%04d", lastNumber + 1);
     }
 
     private BookEntity convertToEntity(Book book) {
         return new BookEntity(
                 book.getBookId(),
-                book.getIsbn(),
                 book.getBookTitle(),
-                book.getAuthor(),
-                book.getCategoryId(),
-                book.getAvailability()
+                book.getIsbn(),
+                book.getAvailability(),
+                book.getAuthor()
+
         );
     }
-
 }

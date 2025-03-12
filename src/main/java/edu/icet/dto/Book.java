@@ -13,6 +13,5 @@ public class Book {
     private String bookTitle;
     private String isbn;
     private String availability;
-    private Integer categoryId;
     private String author;
 }

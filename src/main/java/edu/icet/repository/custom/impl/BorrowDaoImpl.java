@@ -58,7 +58,6 @@ public class BorrowDaoImpl implements BorrowDao {
                         resultSet.getString("ISBN"),
                         resultSet.getString("BookTitle"),
                         resultSet.getString("Author"),
-                        resultSet.getInt("CategoryId"),
                         resultSet.getString("Availability")
                 );
             }

@@ -9,11 +9,8 @@ import java.util.ArrayList;
 
 public interface BookDao extends CrudDao<BookEntity,String> {
 
-    ArrayList<String> getAllCategoryIds() throws SQLException;
-
     String getLastBookID();
 
     boolean updateAvailabilityStatus(String bookId, String borrowed, Connection connection) throws SQLException;
 
-    Integer getCategoryIdByName(String categoryName) throws SQLException;
 }

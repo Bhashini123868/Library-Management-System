@@ -15,11 +15,11 @@ public class BookDaoImpl implements BookDao {
 
     private static final String SELECT_LAST_BOOK_ID_SQL = "SELECT BookId FROM book ORDER BY BookId DESC LIMIT 1";
     private static final String INSERT_BOOK_SQL =
-            "INSERT INTO book (BookId,  BookTitle,ISBN , Availability, CategoryId, Author ) VALUES (?, ?, ?, ?, ?, ?)";
+            "INSERT INTO book (BookId,  BookTitle,ISBN , Availability, Author ) VALUES (?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_BOOK_SQL = "SELECT * FROM book";
     private static final String DELETE_BOOK_SQL = "DELETE FROM book WHERE BookId = ?";
     private static final String UPDATE_BOOK_SQL =
-            "UPDATE book SET BookTitle = ?, ISBN = ?, Availability = ?, CategoryId = ?, Author = ? WHERE BookId = ?";
+            "UPDATE book SET BookTitle = ?, ISBN = ?, Availability = ?, Author = ? WHERE BookId = ?";
     private static final String SELECT_BOOK_BY_ID_SQL = "SELECT * FROM book WHERE BookId = ?";
 
 
@@ -33,8 +33,7 @@ public class BookDaoImpl implements BookDao {
             preparedStatement.setString(2, entity.getBookTitle());
             preparedStatement.setString(3, entity.getIsbn());
             preparedStatement.setString(4, entity.getAvailability());
-            preparedStatement.setInt(5, entity.getCategoryId());
-            preparedStatement.setString(6, entity.getAuthor());
+            preparedStatement.setString(5, entity.getAuthor());
 
 
             int rowsAffected = preparedStatement.executeUpdate();
@@ -52,8 +51,7 @@ public class BookDaoImpl implements BookDao {
             preparedStatement.setString(2, entity.getBookTitle());
             preparedStatement.setString(3, entity.getIsbn());
             preparedStatement.setString(4, entity.getAvailability());
-            preparedStatement.setInt(5, entity.getCategoryId());
-            preparedStatement.setString(6, entity.getAuthor());
+            preparedStatement.setString(5, entity.getAuthor());
 
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
@@ -75,7 +73,6 @@ public class BookDaoImpl implements BookDao {
                         resultSet.getString("BookTitle"),
                         resultSet.getString("ISBN"),
                         resultSet.getString("Availability"),
-                        resultSet.getInt("CategoryId"),
                         resultSet.getString("Author")
                 );
             }
@@ -107,23 +104,12 @@ public class BookDaoImpl implements BookDao {
                         resultSet.getString("BookId"),
                         resultSet.getString("BookTitle"),
                         resultSet.getString("ISBN"),
-                        resultSet.getString("Availability"),
-                        resultSet.getInt("CategoryId"),
-                        resultSet.getString("Author")
+                        resultSet.getString("Author"),
+                        resultSet.getString("Availability")
                 ));
             }
         }
         return books;
-    }
-
-    @Override
-    public ArrayList<String> getAllCategoryIds() throws SQLException {
-        ResultSet rst = DBConnection.getInstance().getConnection().createStatement().executeQuery("Select CategoryId From category");
-        ArrayList<String> cateids=new ArrayList<>();
-        while(rst.next()){
-            cateids.add(rst.getString(1));
-        }
-        return cateids;
     }
 
     @Override
@@ -155,19 +141,6 @@ public class BookDaoImpl implements BookDao {
         }
     }
 
-    @Override
-    public Integer getCategoryIdByName(String categoryName) throws SQLException {
-        String query = "SELECT CategoryId FROM category WHERE CategoryName = ?";
-        try (Connection connection = DBConnection.getInstance().getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, categoryName);
-            ResultSet resultSet = preparedStatement.executeQuery();
 
-            if (resultSet.next()) {
-                return resultSet.getInt("CategoryId");
-            }
-        }
-        return null;
-    }
 
 }
